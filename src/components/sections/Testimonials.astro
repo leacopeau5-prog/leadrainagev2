@@ -1,0 +1,52 @@
+---
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Card from '@components/ui/Card.astro';
+import { Icon } from 'astro-icon/components';
+
+// TODO: remplacer par de vrais témoignages collectés par Léa.
+const testimonials = [
+  {
+    text: 'Première séance avec Léa et déjà une vraie sensation de légèreté. Cadre apaisant et accueil parfait.',
+    author: 'Emma',
+    context: 'Drainage bien-être',
+  },
+  {
+    text: 'J\'ai suivi un protocole post-opératoire après ma chirurgie. Professionnelle, rassurante, à l\'écoute — je recommande les yeux fermés.',
+    author: 'Chloé',
+    context: 'Drainage post-opératoire',
+  },
+  {
+    text: 'En cure de 5 séances pour ma silhouette, je vois déjà la différence. Léa prend le temps d\'expliquer chaque étape.',
+    author: 'Sophie',
+    context: 'Cure silhouette',
+  },
+];
+---
+
+<section class="bg-[color:var(--color-cream)]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <SectionHeading
+      eyebrow="Elles témoignent"
+      title="Ce qu'en disent mes clientes"
+    />
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <Card class="fade-in" variant="default">
+          <Icon name="lucide:quote" class="h-8 w-8 text-[color:var(--color-accent-300)] mb-4" aria-hidden="true" />
+          <blockquote class="text-base text-[color:var(--color-ink)] italic">
+            « {t.text} »
+          </blockquote>
+          <footer class="mt-5 pt-5 border-t border-[color:var(--color-taupe-100)]">
+            <p class="font-semibold text-[color:var(--color-primary)] m-0">{t.author}</p>
+            <p class="text-xs text-[color:var(--color-ink-muted)] m-0">{t.context}</p>
+          </footer>
+        </Card>
+      ))}
+    </div>
+
+    <p class="mt-8 text-xs text-center text-[color:var(--color-ink-muted)] italic">
+      Témoignages illustratifs — à remplacer par des retours réels avant mise en ligne.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '@utils/site';
+
+interface Props {
+  label?: string;
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'accent';
+  fullWidth?: boolean;
+  withIcon?: boolean;
+}
+
+const {
+  label = 'Réserver ma séance',
+  size = 'md',
+  variant = 'primary',
+  fullWidth = false,
+  withIcon = true,
+} = Astro.props;
+---
+
+<Button
+  href={site.booking.url}
+  variant={variant}
+  size={size}
+  fullWidth={fullWidth}
+  external
+  ariaLabel="Prendre rendez-vous en ligne via Cal.com — ouvre un nouvel onglet"
+>
+  {withIcon && <Icon name="lucide:calendar-heart" class="h-5 w-5" aria-hidden="true" />}
+  {label}
+</Button>

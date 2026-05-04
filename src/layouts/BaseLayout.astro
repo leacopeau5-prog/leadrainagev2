@@ -1,0 +1,111 @@
+---
+import '@styles/global.css';
+import { site } from '@utils/site';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;                // URL OG image (absolue ou chemin relatif)
+  canonical?: string;            // URL canonique absolue
+  noindex?: boolean;
+  schema?: object | object[];    // JSON-LD (un ou plusieurs objets)
+}
+
+const {
+  title,
+  description,
+  image = '/og-default.jpg',
+  canonical,
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const fullTitle = title === site.name ? title : `${title} — ${site.name}`;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+const imageUrl = image.startsWith('http') ? image : new URL(image, site.url).href;
+
+const schemas = schema
+  ? Array.isArray(schema)
+    ? schema
+    : [schema]
+  : [];
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <!-- Theme color (mobile) -->
+    <meta name="theme-color" content="#771617" />
+
+    <!-- JSON-LD Schema.org -->
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <!-- Preconnect (optionnel, rien d'externe actuellement) -->
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-white text-[color:var(--color-ink)] font-[var(--font-body)]">
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
+
+    <Header />
+
+    <main id="contenu" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Fade-in au scroll (a11y: désactivé si prefers-reduced-motion) -->
+    <script>
+      const elements = document.querySelectorAll<HTMLElement>('.fade-in');
+      if (elements.length && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+        );
+        elements.forEach((el) => observer.observe(el));
+      } else {
+        elements.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>

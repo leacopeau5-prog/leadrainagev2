@@ -1,0 +1,54 @@
+---
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  current?: string;
+  variant?: 'header' | 'mobile';
+}
+
+const { current = '', variant = 'header' } = Astro.props;
+
+const links: NavLink[] = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Prestations', href: '/prestations' },
+  { label: 'À propos', href: '/a-propos' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return current === '/';
+  return current.startsWith(href);
+};
+
+const baseClass =
+  variant === 'mobile'
+    ? 'flex flex-col gap-1 px-4 py-4'
+    : 'hidden md:flex items-center gap-1';
+
+const linkClass = (active: boolean) =>
+  [
+    variant === 'mobile'
+      ? 'block px-4 py-3 rounded-md font-[var(--font-body)] text-base'
+      : 'px-3 py-2 rounded-md font-[var(--font-body)] text-sm',
+    active
+      ? 'bg-[color:var(--color-primary-700)] text-white'
+      : 'text-white/90 hover:text-white hover:bg-[color:var(--color-primary-700)]',
+    'transition-colors',
+  ].join(' ');
+---
+
+<nav aria-label="Navigation principale" class={baseClass}>
+  {links.map((link) => (
+    <a
+      href={link.href}
+      class={linkClass(isActive(link.href))}
+      aria-current={isActive(link.href) ? 'page' : undefined}
+    >
+      {link.label}
+    </a>
+  ))}
+</nav>

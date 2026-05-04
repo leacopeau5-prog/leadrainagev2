@@ -1,0 +1,40 @@
+---
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import { Icon } from 'astro-icon/components';
+
+const benefits = [
+  { icon: 'lucide:droplet',       title: 'Jambes plus légères',   text: 'Le drainage peut favoriser la diminution de la rétention d\'eau et la sensation de jambes lourdes.' },
+  { icon: 'lucide:activity',      title: 'Circulation stimulée',  text: 'Il contribue à relancer la circulation lymphatique, souvent ralentie par la sédentarité.' },
+  { icon: 'lucide:moon',          title: 'Sommeil plus réparateur', text: 'De nombreuses personnes rapportent un sommeil plus profond après une séance.' },
+  { icon: 'lucide:leaf',          title: 'Détente profonde',      text: 'Les gestes doux et enveloppants aident le système nerveux à basculer en mode parasympathique.' },
+  { icon: 'lucide:sun',           title: 'Peau plus lumineuse',   text: 'Le drainage peut contribuer à une peau plus nette et mieux oxygénée.' },
+  { icon: 'lucide:heart',         title: 'Récupération facilitée', text: 'Après sport ou chirurgie, le drainage soutient la récupération et le confort.' },
+];
+---
+
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <SectionHeading
+    eyebrow="Les bénéfices"
+    title="Ce que le drainage peut vous apporter"
+    subtitle="Chaque corps réagit différemment. Les bénéfices s'installent avec la régularité des séances."
+  />
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    {benefits.map((b) => (
+      <div class="fade-in flex gap-4 p-5 rounded-[var(--radius-lg)] hover:bg-[color:var(--color-cream)] transition-colors">
+        <div class="shrink-0 inline-flex items-center justify-center h-11 w-11 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)]">
+          <Icon name={b.icon} class="h-5 w-5" aria-hidden="true" />
+        </div>
+        <div>
+          <h3 class="text-lg m-0">{b.title}</h3>
+          <p class="mt-2 text-sm text-[color:var(--color-ink-muted)]">{b.text}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-10 text-xs italic text-center text-[color:var(--color-ink-muted)] max-w-2xl mx-auto">
+    Les effets du drainage lymphatique varient d'une personne à l'autre et ne se substituent pas à un avis médical.
+    En cas de pathologie, parlez-en à votre médecin.
+  </p>
+</section>

@@ -1,0 +1,56 @@
+---
+import SectionHeading from '@components/ui/SectionHeading.astro';
+
+interface Item { question: string; answer: string; }
+interface Props {
+  items?: Item[];
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const defaultItems: Item[] = [
+  {
+    question: 'Combien de temps dure une séance ?',
+    answer: 'Une séance dure généralement 60 minutes, comprenant un court échange préalable pour adapter le protocole à votre état du jour.',
+  },
+  {
+    question: 'Combien de séances sont recommandées ?',
+    answer: 'Cela dépend de votre objectif. Une à trois séances peuvent suffire pour une détente ponctuelle, tandis qu\'une cure de 5 à 10 séances est souvent conseillée pour des résultats sur la silhouette ou en post-opératoire.',
+  },
+  {
+    question: 'Est-ce douloureux ?',
+    answer: 'Non. Le drainage lymphatique est un massage doux, rythmé et enveloppant. La pression est toujours adaptée à votre sensibilité.',
+  },
+  {
+    question: 'Y a-t-il des contre-indications ?',
+    answer: 'Oui. Certaines situations (infections aiguës, phlébite récente, cancer évolutif non suivi, insuffisance cardiaque décompensée) nécessitent l\'avis d\'un médecin avant toute séance. Chaque fiche prestation détaille les contre-indications spécifiques.',
+  },
+  {
+    question: 'Comment se déroule la prise de rendez-vous ?',
+    answer: 'Entièrement en ligne via Cal.com. Vous choisissez la prestation, le créneau qui vous convient, et recevez automatiquement votre confirmation par email.',
+  },
+];
+
+const { items = defaultItems, eyebrow = 'Questions fréquentes', title = 'Les réponses à vos questions', subtitle } = Astro.props;
+---
+
+<section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
+
+  <div class="space-y-3">
+    {items.map((item, idx) => (
+      <details class="group fade-in rounded-[var(--radius-lg)] bg-[color:var(--color-cream)] border border-transparent hover:border-[color:var(--color-taupe-200)] transition-colors" open={idx === 0}>
+        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 p-5 md:p-6 font-semibold text-[color:var(--color-primary)]">
+          <span>{item.question}</span>
+          <span aria-hidden="true" class="shrink-0 h-6 w-6 rounded-full bg-[color:var(--color-primary)] text-white flex items-center justify-center transition-transform group-open:rotate-45">
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 4a1 1 0 011 1v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H5a1 1 0 110-2h4V5a1 1 0 011-1z"/></svg>
+          </span>
+        </summary>
+        <div class="px-5 md:px-6 pb-5 md:pb-6 text-[color:var(--color-ink-muted)] text-base">
+          {item.answer}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

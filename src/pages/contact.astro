@@ -1,0 +1,113 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import BookingCTA from '@components/ui/BookingCTA.astro';
+import { Icon } from 'astro-icon/components';
+import { breadcrumbSchema } from '@utils/seo';
+import { site } from '@utils/site';
+
+const schema = breadcrumbSchema([
+  { name: 'Accueil', url: site.url },
+  { name: 'Contact', url: `${site.url}/contact` },
+]);
+
+const hours = [
+  { day: 'Lundi',    value: site.contact.hours.monday },
+  { day: 'Mardi',    value: site.contact.hours.tuesday },
+  { day: 'Mercredi', value: site.contact.hours.wednesday },
+  { day: 'Jeudi',    value: site.contact.hours.thursday },
+  { day: 'Vendredi', value: site.contact.hours.friday },
+  { day: 'Samedi',   value: site.contact.hours.saturday },
+  { day: 'Dimanche', value: site.contact.hours.sunday },
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Contacter Léa Drainage à Reims : adresse, horaires et réservation en ligne via Cal.com.`}
+  schema={schema}
+>
+  <section class="bg-[color:var(--color-cream)] py-16 md:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-3">Contact</p>
+      <h1 class="m-0">On se rencontre à Reims ?</h1>
+      <p class="mt-6 text-lg text-[color:var(--color-ink-muted)]">
+        Le plus simple pour prendre rendez-vous est la réservation en ligne — c'est instantané et vous choisissez votre créneau.
+      </p>
+      <div class="mt-8">
+        <BookingCTA size="lg" variant="primary" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="grid lg:grid-cols-2 gap-10">
+      <!-- Infos -->
+      <div>
+        <SectionHeading eyebrow="Mes coordonnées" title="Venir au cabinet" align="left" as="h2" />
+
+        <ul class="space-y-5 text-base">
+          <li class="flex items-start gap-4">
+            <Icon name="lucide:map-pin" class="h-6 w-6 shrink-0 text-[color:var(--color-rose)] mt-0.5" aria-hidden="true" />
+            <div>
+              <p class="font-semibold text-[color:var(--color-primary)] m-0">Adresse</p>
+              <p class="text-[color:var(--color-ink-muted)] m-0">
+                {site.contact.address.street || 'Adresse précise à venir'}<br />
+                {site.contact.address.postalCode} {site.contact.address.city}
+              </p>
+            </div>
+          </li>
+
+          {site.contact.phoneDisplay && (
+            <li class="flex items-start gap-4">
+              <Icon name="lucide:phone" class="h-6 w-6 shrink-0 text-[color:var(--color-rose)] mt-0.5" aria-hidden="true" />
+              <div>
+                <p class="font-semibold text-[color:var(--color-primary)] m-0">Téléphone</p>
+                <a href={`tel:${site.contact.phone}`} class="text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-primary)]">{site.contact.phoneDisplay}</a>
+              </div>
+            </li>
+          )}
+
+          {site.contact.email && (
+            <li class="flex items-start gap-4">
+              <Icon name="lucide:mail" class="h-6 w-6 shrink-0 text-[color:var(--color-rose)] mt-0.5" aria-hidden="true" />
+              <div>
+                <p class="font-semibold text-[color:var(--color-primary)] m-0">Email</p>
+                <a href={`mailto:${site.contact.email}`} class="text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-primary)]">{site.contact.email}</a>
+              </div>
+            </li>
+          )}
+
+          <li class="flex items-start gap-4">
+            <Icon name="lucide:clock" class="h-6 w-6 shrink-0 text-[color:var(--color-rose)] mt-0.5" aria-hidden="true" />
+            <div class="w-full">
+              <p class="font-semibold text-[color:var(--color-primary)] m-0">Horaires</p>
+              <table class="mt-2 text-sm text-[color:var(--color-ink-muted)]">
+                <tbody>
+                  {hours.map((h) => (
+                    <tr>
+                      <td class="pr-6 py-0.5 font-medium">{h.day}</td>
+                      <td class="py-0.5">{h.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Carte (placeholder Leaflet — à activer quand adresse connue) -->
+      <div>
+        <SectionHeading eyebrow="Plan d'accès" title="Trouver le cabinet" align="left" as="h2" />
+        <div id="map" class="aspect-square w-full rounded-[var(--radius-lg)] overflow-hidden border border-[color:var(--color-taupe-200)] bg-[color:var(--color-cream)] flex items-center justify-center">
+          <div class="text-center text-[color:var(--color-ink-muted)] p-6">
+            <Icon name="lucide:map" class="h-10 w-10 mx-auto mb-3" aria-hidden="true" />
+            <p class="text-sm italic">La carte sera activée dès que l'adresse précise du cabinet sera confirmée.</p>
+            <p class="text-xs mt-2">(OpenStreetMap via Leaflet, sans cookies tiers.)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

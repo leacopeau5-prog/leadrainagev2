@@ -1,0 +1,83 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Card from '@components/ui/Card.astro';
+import CTASection from '@components/sections/CTASection.astro';
+import { Icon } from 'astro-icon/components';
+import { breadcrumbSchema } from '@utils/seo';
+import { site } from '@utils/site';
+
+const schema = breadcrumbSchema([
+  { name: 'Accueil', url: site.url },
+  { name: 'À propos', url: `${site.url}/a-propos` },
+]);
+
+const values = [
+  { icon: 'lucide:heart-handshake', title: 'Écoute',     text: "Je prends le temps de comprendre votre parcours et vos objectifs à chaque séance." },
+  { icon: 'lucide:shield-check',    title: 'Rigueur',    text: "Chaque protocole est pensé selon les bonnes pratiques, dans le respect de vos contre-indications." },
+  { icon: 'lucide:leaf',            title: 'Douceur',    text: "Les gestes sont doux, rythmés, jamais douloureux — le drainage est un moment pour vous." },
+  { icon: 'lucide:sparkles',        title: 'Sur-mesure', text: "Pas de protocole standard : votre séance est adaptée à ce que votre corps vit aujourd'hui." },
+];
+---
+
+<BaseLayout
+  title="À propos de Léa"
+  description="Découvrez le parcours, la formation et la philosophie de Léa, praticienne en drainage lymphatique à Reims."
+  schema={schema}
+>
+  <!-- Hero court -->
+  <section class="bg-[color:var(--color-cream)] py-16 md:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-3">À propos</p>
+      <h1 class="m-0">Bienvenue, je suis Léa</h1>
+      <p class="mt-6 text-lg text-[color:var(--color-ink-muted)]">
+        Praticienne en drainage lymphatique manuel à Reims, j'accompagne chaque personne dans un cadre doux, discret et professionnel.
+      </p>
+    </div>
+  </section>
+
+  <!-- Parcours -->
+  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 prose-like">
+    <SectionHeading
+      eyebrow="Mon parcours"
+      title="Un choix guidé par l'envie de prendre soin"
+      align="left"
+    />
+    <div class="space-y-4 text-lg text-[color:var(--color-ink)]">
+      <p>
+        <em>Note : cette section est un premier jet à valider avec Léa. Parcours à personnaliser.</em>
+      </p>
+      <p>
+        Après un parcours initial dans le domaine du soin et du bien-être, j'ai choisi de me former au drainage lymphatique manuel
+        pour proposer un accompagnement complet, à la croisée de la détente, de la santé et de l'esthétique.
+      </p>
+      <p>
+        Je me forme en continu auprès de praticiens reconnus pour faire évoluer ma pratique et rester attentive aux spécificités de chaque situation :
+        suite de chirurgie esthétique, accompagnement pré/post-partum, préparation à un événement, récupération sportive.
+      </p>
+      <p>
+        Mon cabinet à Reims est un espace pensé pour que vous vous sentiez à l'aise dès votre arrivée : propre, lumineux, au calme.
+      </p>
+    </div>
+  </section>
+
+  <!-- Valeurs -->
+  <section class="bg-[color:var(--color-cream)] py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading eyebrow="Mes valeurs" title="Ce qui guide ma pratique" />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v) => (
+          <Card variant="default" class="fade-in text-center">
+            <div class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)] mb-4">
+              <Icon name={v.icon} class="h-7 w-7" aria-hidden="true" />
+            </div>
+            <h3 class="text-lg m-0">{v.title}</h3>
+            <p class="mt-3 text-sm text-[color:var(--color-ink-muted)]">{v.text}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="On prend rendez-vous ?" subtitle="Je serai ravie de vous accueillir à Reims pour une première séance." />
+</BaseLayout>

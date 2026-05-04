@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+import portrait from '@assets/photos/lea-portrait.png';
+---
+
+<section class="bg-[color:var(--color-cream)]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-5 gap-12 items-center">
+    <!-- Portrait Léa : photo détourée sur fond beige naturel + halo subtil -->
+    <div class="lg:col-span-2 fade-in">
+      <div class="relative mx-auto max-w-md">
+        <!-- halo décoratif derrière -->
+        <div aria-hidden="true" class="absolute inset-0 rounded-full bg-gradient-to-br from-[color:var(--color-accent-100)] via-[color:var(--color-rose-100)] to-transparent blur-2xl scale-95"></div>
+        <!-- cadre beige naturel avec photo détourée -->
+        <div class="relative aspect-[4/5] rounded-[var(--radius-xl)] border border-[color:var(--color-taupe-300)]/40 shadow-[var(--shadow-lift)] overflow-hidden flex items-end justify-center"
+             style="background: linear-gradient(180deg, #ece2d2 0%, #ddd0bb 100%);">
+          <!-- petit accent décoratif (rappel du logo agrumes) -->
+          <div aria-hidden="true" class="absolute top-4 right-4 h-3 w-3 rounded-full bg-[color:var(--color-accent)]"></div>
+          <div aria-hidden="true" class="absolute top-4 right-9 h-2 w-2 rounded-full bg-[color:var(--color-rose)]"></div>
+          <Image
+            src={portrait}
+            alt="Portrait de Léa, praticienne en drainage lymphatique à Reims"
+            width={866}
+            height={932}
+            class="relative h-full w-auto object-contain object-bottom"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="lg:col-span-3 fade-in">
+      <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-3">
+        Qui suis-je
+      </p>
+      <h2 class="m-0">Léa, votre praticienne en drainage lymphatique</h2>
+      <p class="mt-5 text-lg text-[color:var(--color-ink-muted)]">
+        Formée aux techniques modernes de drainage lymphatique, j'accompagne chaque personne avec une attention
+        particulière à son histoire, son rythme et ses objectifs. Mon cabinet à Reims est un espace doux, propre
+        et rassurant, où vous prenez enfin le temps de vous écouter.
+      </p>
+      <p class="mt-4 text-base text-[color:var(--color-ink-muted)]">
+        Ma promesse : une approche à la fois professionnelle et chaleureuse, sans jugement, où chaque séance est
+        adaptée à ce que vous vivez aujourd'hui.
+      </p>
+
+      <div class="mt-8">
+        <Button href="/a-propos" variant="primary">
+          En savoir plus sur mon parcours
+          <Icon name="lucide:arrow-right" class="h-5 w-5" aria-hidden="true" />
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

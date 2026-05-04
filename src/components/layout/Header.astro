@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Navigation from './Navigation.astro';
+import BookingCTA from '@components/ui/BookingCTA.astro';
+import logo from '@assets/logo/logo-lea-drainage-horizontal.png';
+
+const current = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 bg-[color:var(--color-primary)] text-white shadow-[var(--shadow-soft)]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo (texte intégré, fond clair pour contraster sur le bordeaux) -->
+      <a
+        href="/"
+        class="flex items-center shrink-0 rounded-[var(--radius-md)] bg-[color:var(--color-cream)] px-3 py-1.5 md:px-4 md:py-2"
+        aria-label="Léa Drainage — accueil"
+      >
+        <Image
+          src={logo}
+          alt="Léa Drainage"
+          width={1017}
+          height={432}
+          class="h-7 md:h-9 w-auto object-contain"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Navigation desktop -->
+      <Navigation current={current} variant="header" />
+
+      <!-- CTA desktop + burger mobile -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:block">
+          <BookingCTA size="sm" variant="accent" />
+        </div>
+
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-[color:var(--color-primary-700)] transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" hidden class="md:hidden border-t border-white/10 bg-[color:var(--color-primary)]">
+    <Navigation current={current} variant="mobile" />
+    <div class="px-4 pb-4">
+      <BookingCTA size="md" variant="accent" fullWidth />
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+    if (menu) menu.hidden = isOpen;
+  });
+</script>

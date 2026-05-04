@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/sections/Hero.astro';
+import Pillars from '@components/sections/Pillars.astro';
+import AboutTeaser from '@components/sections/AboutTeaser.astro';
+import ServicesPreview from '@components/sections/ServicesPreview.astro';
+import Benefits from '@components/sections/Benefits.astro';
+import Testimonials from '@components/sections/Testimonials.astro';
+import FAQ from '@components/sections/FAQ.astro';
+import CTASection from '@components/sections/CTASection.astro';
+import { localBusinessSchema, faqSchema } from '@utils/seo';
+
+const faqItems = [
+  {
+    question: 'Combien de temps dure une séance ?',
+    answer: "Une séance dure généralement 60 minutes, avec un court échange préalable pour adapter le protocole.",
+  },
+  {
+    question: 'Combien de séances sont recommandées ?',
+    answer: "De 1 à 3 pour une détente ponctuelle, 5 à 10 en cure pour des résultats sur la silhouette ou en post-opératoire.",
+  },
+  {
+    question: 'Est-ce douloureux ?',
+    answer: "Non, le drainage lymphatique est un massage doux et enveloppant. La pression est toujours adaptée à votre sensibilité.",
+  },
+  {
+    question: 'Y a-t-il des contre-indications ?',
+    answer: "Oui : phlébite, infection aiguë, insuffisance cardiaque décompensée, cancer évolutif sans avis médical. Chaque fiche prestation précise les contre-indications spécifiques.",
+  },
+  {
+    question: 'Comment prendre rendez-vous ?',
+    answer: "Entièrement en ligne via Cal.com. Vous choisissez votre prestation, votre créneau, et recevez votre confirmation par email.",
+  },
+];
+
+const schema = [localBusinessSchema(), faqSchema(faqItems)];
+---
+
+<BaseLayout
+  title="Léa Drainage"
+  description="Drainage lymphatique manuel à Reims : bien-être, esthétique, post-opératoire et récupération sportive. Réservation en ligne."
+  schema={schema}
+>
+  <Hero />
+  <Pillars />
+  <AboutTeaser />
+  <ServicesPreview />
+  <Benefits />
+  <Testimonials />
+  <FAQ items={faqItems} />
+  <CTASection />
+</BaseLayout>

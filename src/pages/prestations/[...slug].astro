@@ -1,0 +1,166 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContraindicationBox from '@components/ui/ContraindicationBox.astro';
+import BookingCTA from '@components/ui/BookingCTA.astro';
+import Button from '@components/ui/Button.astro';
+import CTASection from '@components/sections/CTASection.astro';
+import { Icon } from 'astro-icon/components';
+import { breadcrumbSchema, serviceSchema } from '@utils/seo';
+import { site } from '@utils/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services', (s) => !s.data.draft);
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+
+const url = `${site.url}/prestations/${service.id}`;
+const schema = [
+  serviceSchema({
+    name: service.data.title,
+    description: service.data.summary,
+    url,
+    duration: service.data.duration,
+  }),
+  breadcrumbSchema([
+    { name: 'Accueil', url: site.url },
+    { name: 'Prestations', url: `${site.url}/prestations` },
+    { name: service.data.title, url },
+  ]),
+];
+---
+
+<BaseLayout
+  title={service.data.title}
+  description={service.data.summary}
+  schema={schema}
+>
+  <!-- Hero prestation -->
+  <section class="bg-[color:var(--color-cream)] py-12 md:py-16">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-[color:var(--color-ink-muted)] mb-6">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-[color:var(--color-primary)]">Accueil</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href="/prestations" class="hover:text-[color:var(--color-primary)]">Prestations</a></li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page" class="text-[color:var(--color-primary)] font-semibold">{service.data.title}</li>
+        </ol>
+      </nav>
+
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 inline-flex items-center justify-center h-14 w-14 rounded-full bg-[color:var(--color-primary)] text-white">
+          <Icon name={service.data.icon} class="h-7 w-7" aria-hidden="true" />
+        </div>
+        <div>
+          <h1 class="m-0">{service.data.title}</h1>
+          <p class="mt-3 text-lg text-[color:var(--color-ink-muted)]">{service.data.summary}</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[color:var(--color-taupe-200)]">
+          <Icon name="lucide:clock" class="h-4 w-4 text-[color:var(--color-rose)]" aria-hidden="true" />
+          {service.data.duration}
+        </span>
+        {service.data.frequency && (
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[color:var(--color-taupe-200)]">
+            <Icon name="lucide:repeat" class="h-4 w-4 text-[color:var(--color-rose)]" aria-hidden="true" />
+            {service.data.frequency}
+          </span>
+        )}
+      </div>
+
+      <div class="mt-8">
+        <BookingCTA size="md" variant="primary" label={`Réserver un ${service.data.title.toLowerCase()}`} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu -->
+  <article class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="prose-custom">
+      <Content />
+    </div>
+
+    <!-- Pour qui -->
+    {service.data.forWho.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-2xl">À qui s'adresse cette séance ?</h2>
+        <ul class="mt-4 space-y-2">
+          {service.data.forWho.map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="lucide:check-circle-2" class="h-5 w-5 text-[color:var(--color-accent-400)] mt-0.5 shrink-0" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Bénéfices -->
+    {service.data.benefits.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-2xl">Ce que vous pouvez en attendre</h2>
+        <ul class="mt-4 grid md:grid-cols-2 gap-3">
+          {service.data.benefits.map((item) => (
+            <li class="flex items-start gap-3 p-4 rounded-[var(--radius-md)] bg-[color:var(--color-cream)]">
+              <Icon name="lucide:sparkles" class="h-5 w-5 text-[color:var(--color-rose)] mt-0.5 shrink-0" aria-hidden="true" />
+              <span class="text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Déroulé -->
+    {service.data.process.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-2xl">Le déroulé d'une séance</h2>
+        <ol class="mt-4 space-y-4">
+          {service.data.process.map((step, i) => (
+            <li class="flex items-start gap-4">
+              <span class="shrink-0 inline-flex items-center justify-center h-8 w-8 rounded-full bg-[color:var(--color-primary)] text-white text-sm font-semibold">
+                {i + 1}
+              </span>
+              <span class="pt-1">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    <!-- Contre-indications -->
+    {service.data.contraindications.length > 0 && (
+      <ContraindicationBox items={[...service.data.contraindications]} />
+    )}
+
+    <div class="mt-12 flex flex-wrap gap-4">
+      <BookingCTA size="lg" variant="primary" />
+      <Button href="/prestations" variant="secondary" size="lg">
+        <Icon name="lucide:arrow-left" class="h-5 w-5" aria-hidden="true" />
+        Voir toutes les prestations
+      </Button>
+    </div>
+  </article>
+
+  <CTASection />
+</BaseLayout>
+
+<style>
+  .prose-custom :global(p) {
+    margin-bottom: 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-ink);
+  }
+  .prose-custom :global(em) {
+    color: var(--color-ink-muted);
+  }
+</style>

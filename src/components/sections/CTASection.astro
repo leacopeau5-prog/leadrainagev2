@@ -1,0 +1,42 @@
+---
+import BookingCTA from '@components/ui/BookingCTA.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '@utils/site';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = 'Prête à prendre soin de vous ?',
+  subtitle = 'Réservez votre séance en quelques clics. Je vous accueille dans un cadre doux et rassurant au cœur de Reims.',
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div class="relative rounded-[var(--radius-xl)] bg-[color:var(--color-primary)] text-white p-8 md:p-14 shadow-[var(--shadow-lift)] overflow-hidden">
+      <!-- décor -->
+      <div aria-hidden="true" class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[color:var(--color-accent)]/20 blur-3xl"></div>
+      <div aria-hidden="true" class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-[color:var(--color-rose)]/30 blur-3xl"></div>
+
+      <div class="relative grid md:grid-cols-2 gap-10 items-center">
+        <div class="fade-in">
+          <h2 class="m-0 text-white">{title}</h2>
+          <p class="mt-4 text-lg text-white/90">{subtitle}</p>
+        </div>
+
+        <div class="fade-in flex flex-col items-start md:items-end gap-4">
+          <BookingCTA size="lg" variant="accent" />
+          {site.contact.phoneDisplay && (
+            <a href={`tel:${site.contact.phone}`} class="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm">
+              <Icon name="lucide:phone" class="h-4 w-4" aria-hidden="true" />
+              <span>Ou appelez le {site.contact.phoneDisplay}</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

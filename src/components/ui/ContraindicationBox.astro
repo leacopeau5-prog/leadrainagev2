@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  items: string[];
+  title?: string;
+}
+
+const {
+  items,
+  title = 'Contre-indications à connaître avant une séance',
+} = Astro.props;
+---
+
+<aside
+  role="note"
+  aria-labelledby="contraindication-title"
+  class="my-8 rounded-[var(--radius-lg)] border-l-4 border-[color:var(--color-primary)] bg-[color:var(--color-primary-50)] p-5 md:p-6"
+>
+  <div class="flex items-start gap-3">
+    <Icon
+      name="lucide:shield-alert"
+      class="h-6 w-6 shrink-0 text-[color:var(--color-primary)] mt-0.5"
+      aria-hidden="true"
+    />
+    <div class="flex-1">
+      <h3 id="contraindication-title" class="text-lg font-semibold text-[color:var(--color-primary)] m-0">
+        {title}
+      </h3>
+
+      <p class="mt-2 text-sm text-[color:var(--color-ink-muted)]">
+        Le drainage lymphatique ne convient pas à toutes les situations. En cas de doute, parlez-en à votre médecin
+        avant de réserver. Léa pourra refuser ou adapter une séance si l'un des éléments suivants s'applique.
+      </p>
+
+      <ul class="mt-4 grid gap-2 text-sm md:grid-cols-2">
+        {items.map((item) => (
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:circle-alert" class="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--color-rose)]" aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p class="mt-4 text-xs italic text-[color:var(--color-ink-muted)]">
+        Cette liste est indicative et non exhaustive. Elle ne remplace pas un avis médical.
+      </p>
+    </div>
+  </div>
+</aside>

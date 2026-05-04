@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Card from '@components/ui/Card.astro';
+import CTASection from '@components/sections/CTASection.astro';
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import { breadcrumbSchema } from '@utils/seo';
+import { site } from '@utils/site';
+
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const schema = breadcrumbSchema([
+  { name: 'Accueil', url: site.url },
+  { name: 'Blog', url: `${site.url}/blog` },
+]);
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title="Blog"
+  description="Conseils, explications et réflexions autour du drainage lymphatique et du bien-être."
+  schema={schema}
+>
+  <section class="bg-[color:var(--color-cream)] py-16 md:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-3">Le blog</p>
+      <h1 class="m-0">Mieux comprendre le drainage lymphatique</h1>
+      <p class="mt-6 text-lg text-[color:var(--color-ink-muted)]">
+        Articles, conseils et réponses aux questions que vous vous posez.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    {posts.length === 0 ? (
+      <div class="rounded-[var(--radius-lg)] border border-dashed border-[color:var(--color-taupe-200)] p-12 text-center">
+        <Icon name="lucide:feather" class="h-10 w-10 mx-auto mb-4 text-[color:var(--color-rose)]" aria-hidden="true" />
+        <p class="text-lg font-semibold text-[color:var(--color-primary)]">Les premiers articles arrivent bientôt !</p>
+        <p class="mt-2 text-sm text-[color:var(--color-ink-muted)]">
+          En attendant, vous pouvez me contacter ou réserver directement votre séance.
+        </p>
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <Card href={`/blog/${post.id}`} class="fade-in h-full flex flex-col">
+            <p class="text-xs uppercase tracking-wider text-[color:var(--color-rose)] font-semibold">
+              {formatDate(post.data.publishDate)}
+            </p>
+            <h2 class="text-xl mt-2 m-0">{post.data.title}</h2>
+            <p class="mt-3 text-sm text-[color:var(--color-ink-muted)] flex-1">{post.data.description}</p>
+            <p class="mt-4 inline-flex items-center gap-1 text-xs text-[color:var(--color-primary)] font-semibold uppercase tracking-wider">
+              Lire l'article
+              <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </p>
+          </Card>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <CTASection />
+</BaseLayout>

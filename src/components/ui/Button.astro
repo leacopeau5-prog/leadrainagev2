@@ -1,0 +1,76 @@
+---
+type Variant = 'primary' | 'secondary' | 'accent' | 'ghost';
+type Size = 'sm' | 'md' | 'lg';
+
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: Variant;
+  size?: Size;
+  fullWidth?: boolean;
+  external?: boolean;
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  external = false,
+  ariaLabel,
+  class: className = '',
+} = Astro.props;
+
+const base = [
+  'inline-flex items-center justify-center gap-2',
+  'font-[var(--font-body)] font-semibold',
+  'rounded-full',
+  'transition-all duration-200 ease-out',
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-accent)]',
+  'disabled:opacity-50 disabled:cursor-not-allowed',
+];
+
+const sizes: Record<Size, string> = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const variants: Record<Variant, string> = {
+  primary:
+    'bg-[color:var(--color-rose)] text-white hover:bg-[color:var(--color-rose-500)] shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)]',
+  secondary:
+    'bg-[color:var(--color-cream)] text-[color:var(--color-primary)] border border-[color:var(--color-taupe-200)] hover:bg-white hover:border-[color:var(--color-rose)]',
+  accent:
+    'bg-[color:var(--color-accent)] text-[color:var(--color-primary)] hover:bg-[color:var(--color-accent-300)] shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)]',
+  ghost:
+    'bg-transparent text-[color:var(--color-primary)] hover:bg-[color:var(--color-cream)]',
+};
+
+const classes = [
+  ...base,
+  sizes[size],
+  variants[variant],
+  fullWidth ? 'w-full' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const externalAttrs = external
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+
+{href ? (
+  <a href={href} class={classes} aria-label={ariaLabel} {...externalAttrs}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}

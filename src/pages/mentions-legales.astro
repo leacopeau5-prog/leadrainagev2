@@ -1,0 +1,69 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { site } from '@utils/site';
+---
+
+<BaseLayout
+  title="Mentions légales"
+  description="Mentions légales du site Léa Drainage."
+  noindex
+>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <h1>Mentions légales</h1>
+    <p class="text-sm text-[color:var(--color-ink-muted)]">Dernière mise à jour : à la mise en ligne du site.</p>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Éditrice du site</h2>
+      <p>
+        <strong>Léa</strong>, entrepreneure individuelle exerçant sous le nom commercial <strong>Léa Drainage</strong>.<br />
+        Adresse : {site.contact.address.street || '(à compléter)'}, {site.contact.address.postalCode} {site.contact.address.city}, France.<br />
+        SIRET : {site.legal.siret || '(en cours d\'immatriculation — à compléter)'}.<br />
+        {site.contact.email && <>Email : <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>.<br /></>}
+        {site.contact.phoneDisplay && <>Téléphone : <a href={`tel:${site.contact.phone}`}>{site.contact.phoneDisplay}</a>.</>}
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Directrice de la publication</h2>
+      <p>Léa (à compléter avec le nom complet).</p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Hébergeur</h2>
+      <p>
+        {site.legal.hostName}<br />
+        {site.legal.hostAddress}
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus (textes, images, logo, charte graphique) présents sur ce site est la propriété exclusive
+        de Léa Drainage, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle,
+        est interdite sans autorisation écrite préalable.
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Responsabilité</h2>
+      <p>
+        Les informations diffusées sur ce site sont données à titre indicatif. Elles ne constituent pas un avis médical.
+        En cas de doute ou de pathologie, consultez un professionnel de santé.
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Données personnelles et cookies</h2>
+      <p>
+        Les modalités de traitement de vos données personnelles et l'usage des cookies sont détaillés dans la
+        <a href="/politique-confidentialite">politique de confidentialité</a>.
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-3">
+      <h2 class="text-xl">Droit applicable</h2>
+      <p>Les présentes mentions légales sont régies par le droit français.</p>
+    </section>
+  </article>
+</BaseLayout>

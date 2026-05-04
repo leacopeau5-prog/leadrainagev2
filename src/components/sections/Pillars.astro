@@ -1,0 +1,48 @@
+---
+import SectionHeading from '@components/ui/SectionHeading.astro';
+import Card from '@components/ui/Card.astro';
+import { Icon } from 'astro-icon/components';
+
+const pillars = [
+  {
+    icon: 'lucide:sparkles',
+    title: 'Bien-être & détente',
+    text: 'Relâcher les tensions, retrouver un sommeil réparateur, se sentir plus légère au quotidien.',
+  },
+  {
+    icon: 'lucide:gem',
+    title: 'Esthétique & silhouette',
+    text: 'Affiner la silhouette, réduire la rétention d\'eau, sublimer la peau par un drainage régulier.',
+  },
+  {
+    icon: 'lucide:stethoscope',
+    title: 'Médical & post-opératoire',
+    text: 'Accompagnement après une chirurgie esthétique, soutien de la circulation et récupération.',
+  },
+  {
+    icon: 'lucide:dumbbell',
+    title: 'Sportif & récupération',
+    text: 'Optimiser la récupération musculaire, diminuer les jambes lourdes après l\'effort.',
+  },
+];
+---
+
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <SectionHeading
+    eyebrow="Une approche, quatre univers"
+    title="Un drainage pensé pour chacune"
+    subtitle="Quel que soit votre besoin — douceur, esthétique, santé ou sport — le drainage lymphatique s'adapte à votre corps et à vos objectifs."
+  />
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {pillars.map((pillar) => (
+      <Card variant="cream" class="fade-in text-center">
+        <div class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[color:var(--color-primary)] text-white mb-5">
+          <Icon name={pillar.icon} class="h-7 w-7" aria-hidden="true" />
+        </div>
+        <h3 class="text-xl m-0">{pillar.title}</h3>
+        <p class="mt-3 text-sm text-[color:var(--color-ink-muted)]">{pillar.text}</p>
+      </Card>
+    ))}
+  </div>
+</section>

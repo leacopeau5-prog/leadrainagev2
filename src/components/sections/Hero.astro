@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import BookingCTA from '@components/ui/BookingCTA.astro';
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+import logo from '@assets/logo/logo-lea-drainage-horizontal.png';
+---
+
+<section class="relative overflow-hidden bg-[color:var(--color-cream)]">
+  <!-- Décor doux en arrière-plan -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[color:var(--color-accent-100)]/40 blur-3xl"></div>
+    <div class="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[color:var(--color-rose-100)]/50 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Texte -->
+      <div class="fade-in">
+        <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-4">
+          Drainage lymphatique · Reims
+        </p>
+        <h1 class="m-0">
+          Retrouvez légèreté et vitalité, séance après séance.
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-[color:var(--color-ink-muted)] max-w-xl">
+          Léa vous accompagne avec des séances de drainage lymphatique manuel, pensées pour votre bien-être,
+          votre silhouette, votre récupération post-opératoire ou sportive.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <BookingCTA size="lg" variant="primary" />
+          <Button href="/prestations" variant="secondary" size="lg">
+            Découvrir les prestations
+            <Icon name="lucide:arrow-right" class="h-5 w-5" aria-hidden="true" />
+          </Button>
+        </div>
+
+        <!-- Mini-réassurance -->
+        <ul class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+          <li class="flex items-center gap-2 text-[color:var(--color-ink-muted)]">
+            <Icon name="lucide:heart-handshake" class="h-5 w-5 text-[color:var(--color-accent-400)]" aria-hidden="true" />
+            <span>Approche sur-mesure</span>
+          </li>
+          <li class="flex items-center gap-2 text-[color:var(--color-ink-muted)]">
+            <Icon name="lucide:map-pin" class="h-5 w-5 text-[color:var(--color-accent-400)]" aria-hidden="true" />
+            <span>En plein cœur de Reims</span>
+          </li>
+          <li class="flex items-center gap-2 text-[color:var(--color-ink-muted)]">
+            <Icon name="lucide:calendar-check" class="h-5 w-5 text-[color:var(--color-accent-400)]" aria-hidden="true" />
+            <span>Réservation en ligne</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Visuel : logo en grand (temporaire, à remplacer par photo pro de Léa) -->
+      <div class="fade-in relative flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md lg:max-w-lg">
+          <div class="rounded-[var(--radius-xl)] bg-white shadow-[var(--shadow-lift)] p-8 md:p-12">
+            <Image
+              src={logo}
+              alt="Léa Drainage — institut de drainage lymphatique à Reims"
+              width={1017}
+              height={432}
+              class="w-full h-auto object-contain"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
