@@ -52,8 +52,9 @@ const hours = [
             <div>
               <p class="font-semibold text-[color:var(--color-primary)] m-0">Adresse</p>
               <p class="text-[color:var(--color-ink-muted)] m-0">
-                {site.contact.address.street || 'Adresse précise à venir'}<br />
+                {site.contact.address.street}<br />
                 {site.contact.address.postalCode} {site.contact.address.city}
+                {site.contact.address.district && <> · {site.contact.address.district}</>}
               </p>
             </div>
           </li>

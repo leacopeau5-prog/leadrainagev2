@@ -26,12 +26,8 @@ export function localBusinessSchema() {
       longitude: site.contact.address.longitude,
     },
     openingHoursSpecification: [
-      { dayOfWeek: 'Monday', opens: '09:00', closes: '19:00' },
-      { dayOfWeek: 'Tuesday', opens: '09:00', closes: '19:00' },
-      { dayOfWeek: 'Wednesday', opens: '09:00', closes: '19:00' },
-      { dayOfWeek: 'Thursday', opens: '09:00', closes: '19:00' },
-      { dayOfWeek: 'Friday', opens: '09:00', closes: '19:00' },
-      { dayOfWeek: 'Saturday', opens: '09:00', closes: '14:00' },
+      { dayOfWeek: 'Saturday', opens: '10:00', closes: '18:00' },
+      { dayOfWeek: 'Sunday',   opens: '10:00', closes: '18:00' },
     ].map((d) => ({ '@type': 'OpeningHoursSpecification', ...d })),
   };
 }

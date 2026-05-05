@@ -12,30 +12,29 @@ export const site = {
   region: 'Grand Est',
   country: 'FR',
 
-  // Coordonnées — à remplir quand elles seront fournies
   contact: {
-    phone: '',                  // TODO: remplir
-    phoneDisplay: '',           // Format affiché : "06 00 00 00 00"
-    whatsapp: '',               // Lien wa.me (ex: https://wa.me/33600000000)
-    email: '',                  // TODO: email pro
+    phone: '+33695226715',
+    phoneDisplay: '06 95 22 67 15',
+    whatsapp: 'https://wa.me/33695226715',
+    email: 'leacopeau7@gmail.com',
     address: {
-      street: '',               // TODO: rue + numéro
+      street: '24 rue de Bétheny',
+      district: 'Neuvillette',
       postalCode: '51100',
       city: 'Reims',
       country: 'France',
-      // Coordonnées GPS pour la carte — centre de Reims par défaut
-      latitude: 49.2583,
-      longitude: 4.0317,
+      // Coordonnées GPS — quartier Neuvillette à Reims (à affiner si besoin)
+      latitude: 49.2716,
+      longitude: 4.0461,
     },
     hours: {
-      // TODO: confirmer avec Léa
-      monday: '9h – 19h',
-      tuesday: '9h – 19h',
-      wednesday: '9h – 19h',
-      thursday: '9h – 19h',
-      friday: '9h – 19h',
-      saturday: '9h – 14h',
-      sunday: 'Fermé',
+      monday: 'Fermé',
+      tuesday: 'Fermé',
+      wednesday: 'Fermé',
+      thursday: 'Fermé',
+      friday: 'Fermé',
+      saturday: '10h – 18h',
+      sunday: '10h – 18h',
     },
   },
 
@@ -52,9 +51,9 @@ export const site = {
     facebook: '',
   },
 
-  // Informations légales — à remplir
   legal: {
-    siret: '',                  // TODO: dès l'immatriculation AE finalisée
+    siret: '94197779500017',
+    siretFormatted: '941 977 795 00017',
     rcs: '',
     hostName: 'Vercel Inc.',
     hostAddress: '340 S Lemon Ave #4133, Walnut, CA 91789, USA',

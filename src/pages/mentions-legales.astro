@@ -16,8 +16,8 @@ import { site } from '@utils/site';
       <h2 class="text-xl">Éditrice du site</h2>
       <p>
         <strong>Léa</strong>, entrepreneure individuelle exerçant sous le nom commercial <strong>Léa Drainage</strong>.<br />
-        Adresse : {site.contact.address.street || '(à compléter)'}, {site.contact.address.postalCode} {site.contact.address.city}, France.<br />
-        SIRET : {site.legal.siret || '(en cours d\'immatriculation — à compléter)'}.<br />
+        Adresse : {site.contact.address.street}, {site.contact.address.postalCode} {site.contact.address.city} ({site.contact.address.district}), France.<br />
+        SIRET : {site.legal.siretFormatted || site.legal.siret}.<br />
         {site.contact.email && <>Email : <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>.<br /></>}
         {site.contact.phoneDisplay && <>Téléphone : <a href={`tel:${site.contact.phone}`}>{site.contact.phoneDisplay}</a>.</>}
       </p>
