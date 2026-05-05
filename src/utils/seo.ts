@@ -5,18 +5,21 @@ export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
+    '@id': `${site.url}/#localbusiness`,
     name: site.name,
-    description: `Institut de drainage lymphatique à ${site.city}. Séances bien-être, esthétique, post-opératoire et sportif.`,
+    description: `Cabinet de drainage lymphatique manuel à Reims (Neuvillette). Séances bien-être, post-opératoire, récupération sportive et cure silhouette. Sur rendez-vous samedi et dimanche.`,
     url: site.url,
     telephone: site.contact.phone || undefined,
     email: site.contact.email || undefined,
-    image: `${site.url}/og-image.jpg`,
-    priceRange: '€€',
+    image: `${site.url}/og-default.jpg`,
+    priceRange: '80 € – 350 €',
+    paymentAccepted: 'Espèces, Carte bancaire, Virement',
+    currenciesAccepted: 'EUR',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.contact.address.street || undefined,
       postalCode: site.contact.address.postalCode,
-      addressLocality: site.contact.address.city,
+      addressLocality: `${site.contact.address.city} ${site.contact.address.district}`.trim(),
       addressRegion: site.region,
       addressCountry: site.contact.address.country,
     },
@@ -25,10 +28,33 @@ export function localBusinessSchema() {
       latitude: site.contact.address.latitude,
       longitude: site.contact.address.longitude,
     },
+    areaServed: [
+      { '@type': 'City', name: 'Reims' },
+      { '@type': 'City', name: 'Bétheny' },
+      { '@type': 'City', name: 'Witry-lès-Reims' },
+      { '@type': 'City', name: 'Cernay-lès-Reims' },
+      { '@type': 'City', name: 'Saint-Brice-Courcelles' },
+    ],
     openingHoursSpecification: [
       { dayOfWeek: 'Saturday', opens: '10:00', closes: '18:00' },
       { dayOfWeek: 'Sunday',   opens: '10:00', closes: '18:00' },
     ].map((d) => ({ '@type': 'OpeningHoursSpecification', ...d })),
+    sameAs: [site.social.instagram, site.social.facebook].filter(Boolean),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Prestations de drainage lymphatique',
+      itemListElement: [
+        { name: 'Drainage lymphatique bien-être', price: '80', currency: 'EUR' },
+        { name: 'Drainage lymphatique récupération sportive', price: '80', currency: 'EUR' },
+        { name: 'Drainage lymphatique post-opératoire', price: '80', currency: 'EUR' },
+        { name: 'Cure silhouette — 5 séances', price: '350', currency: 'EUR' },
+      ].map((p) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: p.name },
+        price: p.price,
+        priceCurrency: p.currency,
+      })),
+    },
   };
 }
 
