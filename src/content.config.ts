@@ -4,7 +4,7 @@ import { glob } from 'astro/loaders';
 /** Prestations / séances proposées par Léa. */
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     slug: z.string().optional(),
     order: z.number().default(0),
@@ -15,7 +15,9 @@ const services = defineCollection({
     benefits: z.array(z.string()).default([]),  // bénéfices principaux
     contraindications: z.array(z.string()).default([]),
     process: z.array(z.string()).default([]),   // déroulé d'une séance
-    image: z.string().optional(),
+    /** Image hero affichée en haut de la fiche (optimisée par Astro). */
+    heroImage: image().optional(),
+    /** Texte alternatif descriptif de l'image hero (a11y). */
     heroAlt: z.string().optional(),
     icon: z.string().default('lucide:droplet'),
     featured: z.boolean().default(false),

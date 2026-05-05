@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ContraindicationBox from '@components/ui/ContraindicationBox.astro';
 import BookingCTA from '@components/ui/BookingCTA.astro';
@@ -41,6 +42,24 @@ const schema = [
   description={service.data.summary}
   schema={schema}
 >
+  <!-- Photo hero pleine largeur -->
+  {service.data.heroImage && (
+    <div class="relative w-full overflow-hidden bg-[color:var(--color-cream)]">
+      <Image
+        src={service.data.heroImage}
+        alt={service.data.heroAlt ?? service.data.title}
+        widths={[640, 1024, 1600]}
+        sizes="100vw"
+        class="w-full h-[28vh] md:h-[40vh] lg:h-[48vh] object-cover"
+        loading="eager"
+        format="webp"
+        quality={78}
+      />
+      <!-- léger gradient cream en bas pour transition douce vers le hero -->
+      <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[color:var(--color-cream)]"></div>
+    </div>
+  )}
+
   <!-- Hero prestation -->
   <section class="bg-[color:var(--color-cream)] py-12 md:py-16">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

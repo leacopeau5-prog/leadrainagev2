@@ -6,6 +6,8 @@ duration: "60 minutes par séance"
 frequency: "5 séances sur 2 à 3 semaines pour maximiser les résultats"
 icon: "lucide:gem"
 featured: true
+heroImage: "../../assets/photos/hero-cure-silhouette.jpg"
+heroAlt: "Ambiance spa avec serviette pliée, flacon de soin et tulipes roses"
 bookingUrl: "https://cal.eu/lea-drainage/cure-silhouette"
 forWho:
   - "Vous souhaitez affiner votre silhouette de façon naturelle"

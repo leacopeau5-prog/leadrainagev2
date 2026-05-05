@@ -6,6 +6,8 @@ duration: "60 minutes"
 frequency: "Idéalement 24 à 48 h après une séance intense, ou en cure pendant une période de charge d'entraînement"
 icon: "lucide:dumbbell"
 featured: true
+heroImage: "../../assets/photos/hero-recuperation-sportive.jpg"
+heroAlt: "Sportives en plein effort sur tapis de yoga, lumière naturelle"
 bookingUrl: "https://cal.eu/lea-drainage/recuperation-sportive"
 forWho:
   - "Vous pratiquez un sport de manière régulière (running, cyclisme, fitness, sports collectifs…)"

@@ -6,6 +6,8 @@ duration: "60 minutes"
 frequency: "Protocole recommandé : 8 à 15 séances selon l'intervention, à raison de 2 à 3 par semaine les premières semaines"
 icon: "lucide:stethoscope"
 featured: true
+heroImage: "../../assets/photos/hero-drainage-post-operatoire.jpg"
+heroAlt: "Mains expertes appliquant un massage doux du visage, geste apaisant et professionnel"
 bookingUrl: "https://cal.eu/lea-drainage/post-operatoire"
 forWho:
   - "Vous avez récemment bénéficié d'une liposuccion, d'un lifting, d'une abdominoplastie ou d'une chirurgie mammaire"

@@ -6,6 +6,8 @@ duration: "60 minutes"
 frequency: "Selon vos besoins : séance ponctuelle ou cure régulière"
 icon: "lucide:sparkles"
 featured: true
+heroImage: "../../assets/photos/hero-bien-etre.jpg"
+heroAlt: "Massage drainant à l'huile sur le dos, dans une ambiance spa apaisante"
 bookingUrl: "https://cal.eu/lea-drainage/drainage-bienetre"
 forWho:
   - "Vous vous sentez fatiguée, tendue, avec les jambes lourdes"
