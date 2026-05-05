@@ -19,13 +19,14 @@ export const site = {
     email: 'leacopeau7@gmail.com',
     address: {
       street: '24 rue de Bétheny',
-      district: 'Neuvillette',
+      district: 'la Neuvillette',
       postalCode: '51100',
       city: 'Reims',
       country: 'France',
-      // Coordonnées GPS — quartier Neuvillette à Reims (à affiner si besoin)
-      latitude: 49.2716,
-      longitude: 4.0461,
+      // Coordonnées GPS vérifiées via Nominatim — Actipole La Neuvillette, Reims
+      // ⚠️ Important : il existe un autre 24 rue de Bétheny dans le quartier Jamin
+      latitude: 49.2868762,
+      longitude: 4.0155508,
     },
     hours: {
       monday: 'Fermé',

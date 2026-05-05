@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
           <p>
             <Icon name="lucide:map-pin" class="inline-block h-4 w-4 mr-2" aria-hidden="true" />
             {site.contact.address.street}<br />
-            {site.contact.address.postalCode} {site.contact.address.city}
+            {site.contact.address.postalCode} {site.contact.address.city} {site.contact.address.district}
           </p>
         )}
         {site.contact.phoneDisplay && (
