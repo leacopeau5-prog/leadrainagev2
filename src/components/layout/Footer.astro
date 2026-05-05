@@ -39,13 +39,13 @@ const year = new Date().getFullYear();
         {site.contact.phoneDisplay && (
           <p>
             <Icon name="lucide:phone" class="inline-block h-4 w-4 mr-2" aria-hidden="true" />
-            <a href={`tel:${site.contact.phone}`} class="hover:text-white">{site.contact.phoneDisplay}</a>
+            <a href={`tel:${site.contact.phone}`} class="text-white/90 hover:text-white no-underline">{site.contact.phoneDisplay}</a>
           </p>
         )}
         {site.contact.email && (
           <p>
             <Icon name="lucide:mail" class="inline-block h-4 w-4 mr-2" aria-hidden="true" />
-            <a href={`mailto:${site.contact.email}`} class="hover:text-white">{site.contact.email}</a>
+            <a href={`mailto:${site.contact.email}`} class="text-white/90 hover:text-white no-underline break-all">{site.contact.email}</a>
           </p>
         )}
       </address>
