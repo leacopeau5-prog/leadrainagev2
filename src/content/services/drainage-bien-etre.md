@@ -6,6 +6,7 @@ duration: "60 minutes"
 frequency: "Selon vos besoins : séance ponctuelle ou cure régulière"
 icon: "lucide:sparkles"
 featured: true
+bookingUrl: "https://cal.eu/lea-drainage/drainage-bienetre"
 forWho:
   - "Vous vous sentez fatiguée, tendue, avec les jambes lourdes"
   - "Vous cherchez un moment de pause pour vous"

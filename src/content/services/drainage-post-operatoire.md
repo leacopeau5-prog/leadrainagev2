@@ -1,11 +1,12 @@
 ---
 title: "Drainage lymphatique post-opératoire"
-order: 2
+order: 3
 summary: "Un accompagnement doux et ciblé après une chirurgie esthétique pour soutenir la récupération et favoriser un meilleur confort."
 duration: "60 minutes"
 frequency: "Protocole recommandé : 8 à 15 séances selon l'intervention, à raison de 2 à 3 par semaine les premières semaines"
 icon: "lucide:stethoscope"
 featured: true
+bookingUrl: "https://cal.eu/lea-drainage/post-operatoire"
 forWho:
   - "Vous avez récemment bénéficié d'une liposuccion, d'un lifting, d'une abdominoplastie ou d'une chirurgie mammaire"
   - "Votre chirurgien vous a recommandé un drainage manuel post-opératoire"

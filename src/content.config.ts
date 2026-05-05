@@ -20,6 +20,8 @@ const services = defineCollection({
     icon: z.string().default('lucide:droplet'),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
+    /** URL Cal.com spécifique pour cette prestation (optionnel, sinon URL globale). */
+    bookingUrl: z.string().url().optional(),
   }),
 });
 

@@ -9,6 +9,8 @@ interface Props {
   variant?: 'primary' | 'secondary' | 'accent';
   fullWidth?: boolean;
   withIcon?: boolean;
+  /** URL Cal.com spécifique (sinon URL globale du site). */
+  href?: string;
 }
 
 const {
@@ -17,11 +19,14 @@ const {
   variant = 'primary',
   fullWidth = false,
   withIcon = true,
+  href,
 } = Astro.props;
+
+const targetUrl = href ?? site.booking.url;
 ---
 
 <Button
-  href={site.booking.url}
+  href={targetUrl}
   variant={variant}
   size={size}
   fullWidth={fullWidth}

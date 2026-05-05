@@ -78,7 +78,12 @@ const schema = [
       </div>
 
       <div class="mt-8">
-        <BookingCTA size="md" variant="primary" label={`Réserver un ${service.data.title.toLowerCase()}`} />
+        <BookingCTA
+          size="md"
+          variant="primary"
+          label={`Réserver un ${service.data.title.toLowerCase()}`}
+          href={service.data.bookingUrl}
+        />
       </div>
     </div>
   </section>
@@ -142,7 +147,7 @@ const schema = [
     )}
 
     <div class="mt-12 flex flex-wrap gap-4">
-      <BookingCTA size="lg" variant="primary" />
+      <BookingCTA size="lg" variant="primary" href={service.data.bookingUrl} />
       <Button href="/prestations" variant="secondary" size="lg">
         <Icon name="lucide:arrow-left" class="h-5 w-5" aria-hidden="true" />
         Voir toutes les prestations

@@ -39,13 +39,11 @@ export const site = {
     },
   },
 
-  // Réservation
+  // Réservation — Cal.com EU instance (RGPD-friendly, données en Europe)
   booking: {
     provider: 'cal.com' as const,
-    // TODO: lien Cal.com de Léa — ex: https://cal.com/lea-drainage/consultation
-    url: 'https://cal.com/lea-drainage',
-    // Pour l'embed iframe (même URL généralement)
-    embedUrl: 'https://cal.com/lea-drainage',
+    url: 'https://cal.eu/lea-drainage',
+    embedUrl: 'https://cal.eu/lea-drainage',
   },
 
   // Réseaux sociaux — ajouter au fur et à mesure
