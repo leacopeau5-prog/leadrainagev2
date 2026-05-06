@@ -28,13 +28,15 @@ const {
         </div>
 
         <div class="fade-in flex flex-col items-start md:items-end gap-4">
-          <BookingCTA size="lg" variant="accent" />
-          {site.contact.phoneDisplay && (
-            <a href={`tel:${site.contact.phone}`} class="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm">
-              <Icon name="lucide:phone" class="h-4 w-4" aria-hidden="true" />
-              <span>Ou appelez le {site.contact.phoneDisplay}</span>
-            </a>
-          )}
+          <div class="flex flex-col items-center gap-3">
+            <BookingCTA size="lg" variant="accent" />
+            {site.contact.phoneDisplay && (
+              <a href={`tel:${site.contact.phone}`} class="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm no-underline">
+                <Icon name="lucide:phone" class="h-4 w-4" aria-hidden="true" />
+                <span>Ou appelez le {site.contact.phoneDisplay}</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export const site = {
     phone: '+33695226715',
     phoneDisplay: '06 95 22 67 15',
     whatsapp: 'https://wa.me/33695226715',
-    email: 'leacopeau7@gmail.com',
+    email: 'leacopeau5@gmail.com',
     address: {
       street: '24 rue de Bétheny',
       district: 'la Neuvillette',
