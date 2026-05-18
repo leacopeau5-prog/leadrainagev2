@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BookingCTA from '@components/ui/BookingCTA.astro';
 import Button from '@components/ui/Button.astro';
+import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 import logo from '@assets/logo/logo-lea-drainage-horizontal.png';
 ---
@@ -11,6 +12,14 @@ import logo from '@assets/logo/logo-lea-drainage-horizontal.png';
   <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
     <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[color:var(--color-accent-100)]/40 blur-3xl"></div>
     <div class="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[color:var(--color-rose-100)]/50 blur-3xl"></div>
+    <!-- Agrume décoratif (gauche bas, sortant légèrement de la section) -->
+    <CitrusAccent
+      size={280}
+      variant="soft"
+      opacity={0.12}
+      rotation={-18}
+      class="absolute -bottom-12 -left-16 hidden md:block"
+    />
   </div>
 
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">

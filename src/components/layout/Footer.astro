@@ -1,15 +1,28 @@
 ---
 import { Icon } from 'astro-icon/components';
+import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { site } from '@utils/site';
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-24 bg-[color:var(--color-primary)] text-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-10 md:grid-cols-4">
+<footer class="relative overflow-hidden mt-24 bg-[color:var(--color-primary)] text-white">
+  <!-- Agrume décoratif coin haut-droit (très subtil) -->
+  <CitrusAccent
+    size={180}
+    variant="monochrome-cream"
+    opacity={0.06}
+    rotation={-12}
+    class="absolute -top-6 -right-6 pointer-events-none hidden md:block"
+  />
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-10 md:grid-cols-4">
     <!-- Colonne 1 : identité -->
     <div class="md:col-span-1">
-      <p class="font-[var(--font-heading)] text-2xl font-semibold">Léa Drainage</p>
+      <div class="flex items-center gap-3">
+        <CitrusAccent size={32} variant="full" />
+        <p class="font-[var(--font-heading)] text-2xl font-semibold m-0">Léa Drainage</p>
+      </div>
       <p class="mt-2 text-sm text-white/80">Drainage lymphatique à Reims.</p>
     </div>
 
