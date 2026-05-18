@@ -43,14 +43,13 @@ const schema = breadcrumbSchema([
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <Card href={`/prestations/${service.id}`} class="fade-in h-full flex flex-col relative overflow-hidden">
-          <CitrusAccent size={56} variant="soft" opacity={0.18} rotation={18} class="absolute -top-3 -right-3 pointer-events-none" />
-          <div class="relative inline-flex items-center justify-center h-12 w-12 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)] mb-4">
+        <Card href={`/prestations/${service.id}`} class="fade-in h-full flex flex-col">
+          <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)] mb-4">
             <Icon name={service.data.icon} class="h-6 w-6" aria-hidden="true" />
           </div>
-          <h2 class="relative text-xl m-0">{service.data.title}</h2>
-          <p class="relative mt-3 text-sm text-[color:var(--color-ink-muted)] flex-1">{service.data.summary}</p>
-          <div class="relative mt-5 pt-5 border-t border-[color:var(--color-taupe-100)] flex items-center justify-between text-xs text-[color:var(--color-ink-muted)]">
+          <h2 class="text-xl m-0">{service.data.title}</h2>
+          <p class="mt-3 text-sm text-[color:var(--color-ink-muted)] flex-1">{service.data.summary}</p>
+          <div class="mt-5 pt-5 border-t border-[color:var(--color-taupe-100)] flex items-center justify-between text-xs text-[color:var(--color-ink-muted)]">
             <span class="flex items-center gap-1.5"><Icon name="lucide:clock" class="h-4 w-4" aria-hidden="true" />{service.data.duration}</span>
             <span class="text-[color:var(--color-rose)] font-semibold uppercase tracking-wider inline-flex items-center gap-1">
               Découvrir
