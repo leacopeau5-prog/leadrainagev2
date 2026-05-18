@@ -1,6 +1,7 @@
 ---
 import SectionHeading from '@components/ui/SectionHeading.astro';
 import Card from '@components/ui/Card.astro';
+import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 
 // TODO: remplacer par de vrais témoignages collectés par Léa.
@@ -23,8 +24,12 @@ const testimonials = [
 ];
 ---
 
-<section class="bg-[color:var(--color-cream)]">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+<section class="relative overflow-hidden bg-[color:var(--color-cream)]">
+  <!-- Agrumes décoratifs en background -->
+  <CitrusAccent size={180} variant="soft" opacity={0.08} rotation={20} class="absolute top-16 -left-10 pointer-events-none hidden md:block" />
+  <CitrusAccent size={100} variant="soft" opacity={0.12} rotation={-25} class="absolute bottom-24 right-8 pointer-events-none hidden md:block" />
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <SectionHeading
       eyebrow="Elles témoignent"
       title="Ce qu'en disent mes clientes"

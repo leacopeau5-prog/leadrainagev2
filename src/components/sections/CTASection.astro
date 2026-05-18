@@ -1,6 +1,5 @@
 ---
 import BookingCTA from '@components/ui/BookingCTA.astro';
-import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '@utils/site';
 
@@ -21,14 +20,6 @@ const {
       <!-- décor -->
       <div aria-hidden="true" class="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[color:var(--color-accent)]/20 blur-3xl"></div>
       <div aria-hidden="true" class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-[color:var(--color-rose)]/30 blur-3xl"></div>
-      <!-- Agrume décoratif (coin haut-droit, monochrome cream sur bordeaux) -->
-      <CitrusAccent
-        size={220}
-        variant="monochrome-cream"
-        opacity={0.09}
-        rotation={22}
-        class="absolute -top-10 -right-10 hidden md:block"
-      />
 
       <div class="relative grid md:grid-cols-2 gap-10 items-center">
         <div class="fade-in">

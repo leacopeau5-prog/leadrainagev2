@@ -1,12 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '@components/ui/Button.astro';
+import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 import portrait from '@assets/photos/lea-portrait.jpg';
 ---
 
-<section class="bg-[color:var(--color-cream)]">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-5 gap-12 items-center">
+<section class="relative overflow-hidden bg-[color:var(--color-cream)]">
+  <!-- Agrumes décoratifs en background, tailles variées -->
+  <CitrusAccent size={220} variant="soft" opacity={0.07} rotation={28} class="absolute -top-12 right-12 pointer-events-none hidden lg:block" />
+  <CitrusAccent size={130} variant="soft" opacity={0.10} rotation={-15} class="absolute bottom-20 -right-6 pointer-events-none hidden md:block" />
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-5 gap-12 items-center">
     <!-- Portrait Léa en cabinet (photo en situation) -->
     <div class="lg:col-span-2 fade-in">
       <div class="relative mx-auto max-w-md">
