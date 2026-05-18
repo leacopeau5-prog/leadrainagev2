@@ -2,28 +2,27 @@
 import { Image } from 'astro:assets';
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
-import portrait from '@assets/photos/lea-portrait.png';
+import portrait from '@assets/photos/lea-portrait.jpg';
 ---
 
 <section class="bg-[color:var(--color-cream)]">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-5 gap-12 items-center">
-    <!-- Portrait Léa : photo détourée sur fond beige naturel + halo subtil -->
+    <!-- Portrait Léa en cabinet (photo en situation) -->
     <div class="lg:col-span-2 fade-in">
       <div class="relative mx-auto max-w-md">
         <!-- halo décoratif derrière -->
         <div aria-hidden="true" class="absolute inset-0 rounded-full bg-gradient-to-br from-[color:var(--color-accent-100)] via-[color:var(--color-rose-100)] to-transparent blur-2xl scale-95"></div>
-        <!-- cadre beige naturel avec photo détourée -->
-        <div class="relative aspect-[4/5] rounded-[var(--radius-xl)] border border-[color:var(--color-taupe-300)]/40 shadow-[var(--shadow-lift)] overflow-hidden flex items-end justify-center"
-             style="background: linear-gradient(180deg, #ece2d2 0%, #ddd0bb 100%);">
+        <!-- cadre photo en situation -->
+        <div class="relative aspect-[3/4] rounded-[var(--radius-xl)] border border-[color:var(--color-taupe-300)]/40 shadow-[var(--shadow-lift)] overflow-hidden">
           <!-- petit accent décoratif (rappel du logo agrumes) -->
-          <div aria-hidden="true" class="absolute top-4 right-4 h-3 w-3 rounded-full bg-[color:var(--color-accent)]"></div>
-          <div aria-hidden="true" class="absolute top-4 right-9 h-2 w-2 rounded-full bg-[color:var(--color-rose)]"></div>
+          <div aria-hidden="true" class="absolute top-4 right-4 h-3 w-3 rounded-full bg-[color:var(--color-accent)] z-10"></div>
+          <div aria-hidden="true" class="absolute top-4 right-9 h-2 w-2 rounded-full bg-[color:var(--color-rose)] z-10"></div>
           <Image
             src={portrait}
-            alt="Portrait de Léa, praticienne en drainage lymphatique à Reims"
-            width={866}
-            height={932}
-            class="relative h-full w-auto object-contain object-bottom"
+            alt="Léa, praticienne en drainage lymphatique, en plein soin dans son cabinet à Reims"
+            width={1200}
+            height={1600}
+            class="w-full h-full object-cover object-center"
             loading="lazy"
           />
         </div>
