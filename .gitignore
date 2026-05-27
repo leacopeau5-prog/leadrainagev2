@@ -32,3 +32,10 @@ pnpm-debug.log*
 # Claude Code local config (machine-specific paths)
 .claude/launch.json
 .claude/settings.local.json
+
+# Sensitive files - never commit
+recovery-codes.txt
+*-codes.txt
+*.recovery.txt
+*-secret*
+.env*
