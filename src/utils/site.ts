@@ -59,6 +59,14 @@ export const site = {
     hostName: 'Vercel Inc.',
     hostAddress: '340 S Lemon Ave #4133, Walnut, CA 91789, USA',
   },
+
+  // SEO / Analytics
+  seo: {
+    /** Code de vérification Google Search Console (HTML tag). À récupérer sur search.google.com/search-console. */
+    googleSiteVerification: '',
+    /** Vercel Analytics activé (true = injecte le script sur toutes les pages). */
+    vercelAnalytics: true,
+  },
 } as const;
 
 export type Site = typeof site;

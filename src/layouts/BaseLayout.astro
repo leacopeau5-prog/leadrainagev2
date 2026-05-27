@@ -46,6 +46,11 @@ const schemas = schema
 
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
+    {/* Google Search Console — code de vérification (à remplir dans site.ts) */}
+    {site.seo.googleSiteVerification && (
+      <meta name="google-site-verification" content={site.seo.googleSiteVerification} />
+    )}
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -107,5 +112,13 @@ const schemas = schema
         elements.forEach((el) => el.classList.add('is-visible'));
       }
     </script>
+
+    {/* Vercel Analytics — RGPD-friendly, sans cookies, données anonymisées */}
+    {site.seo.vercelAnalytics && (
+      <script>
+        import { inject } from '@vercel/analytics';
+        inject();
+      </script>
+    )}
   </body>
 </html>
