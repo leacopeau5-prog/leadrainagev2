@@ -62,8 +62,8 @@ export const site = {
 
   // SEO / Analytics
   seo: {
-    /** Code de vérification Google Search Console (HTML tag). À récupérer sur search.google.com/search-console. */
-    googleSiteVerification: '',
+    /** Code de vérification Google Search Console (HTML tag). */
+    googleSiteVerification: 'Z5BXOEruFsMJGGuV1YceQkwJk9YACzh_aE4AklJMpKw',
     /** Vercel Analytics activé (true = injecte le script sur toutes les pages). */
     vercelAnalytics: true,
   },
