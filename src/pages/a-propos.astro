@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SectionHeading from '@components/ui/SectionHeading.astro';
 import Card from '@components/ui/Card.astro';
@@ -6,6 +7,7 @@ import CTASection from '@components/sections/CTASection.astro';
 import { Icon } from 'astro-icon/components';
 import { breadcrumbSchema } from '@utils/seo';
 import { site } from '@utils/site';
+import portraitApropos from '@assets/photos/lea-apropos.jpg';
 
 const schema = breadcrumbSchema([
   { name: 'Accueil', url: site.url },
@@ -36,28 +38,52 @@ const values = [
     </div>
   </section>
 
-  <!-- Parcours -->
-  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 prose-like">
-    <SectionHeading
-      eyebrow="Mon parcours"
-      title="Un choix guidé par l'envie de prendre soin"
-      align="left"
-    />
-    <div class="space-y-4 text-lg text-[color:var(--color-ink)]">
-      <p>
-        <em>Note : cette section est un premier jet à valider avec Léa. Parcours à personnaliser.</em>
-      </p>
-      <p>
-        Après un parcours initial dans le domaine du soin et du bien-être, j'ai choisi de me former au drainage lymphatique manuel
-        pour proposer un accompagnement complet, à la croisée de la détente, de la santé et de l'esthétique.
-      </p>
-      <p>
-        Je me forme en continu auprès de praticiens reconnus pour faire évoluer ma pratique et rester attentive aux spécificités de chaque situation :
-        suite de chirurgie esthétique, accompagnement pré/post-partum, préparation à un événement, récupération sportive.
-      </p>
-      <p>
-        Mon cabinet à Reims est un espace pensé pour que vous vous sentiez à l'aise dès votre arrivée : propre, lumineux, au calme.
-      </p>
+  <!-- Parcours (avec photo de Léa au cabinet) -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
+      <!-- Photo Léa devant l'affiche du cabinet -->
+      <div class="lg:col-span-2 fade-in">
+        <div class="relative mx-auto max-w-md">
+          <!-- halo décoratif -->
+          <div aria-hidden="true" class="absolute inset-0 rounded-full bg-gradient-to-br from-[color:var(--color-accent-100)] via-[color:var(--color-rose-100)] to-transparent blur-2xl scale-95"></div>
+          <!-- cadre photo -->
+          <div class="relative aspect-[3/4] rounded-[var(--radius-xl)] border border-[color:var(--color-taupe-300)]/40 shadow-[var(--shadow-lift)] overflow-hidden">
+            <!-- petits accents décoratifs (rappel du logo) -->
+            <div aria-hidden="true" class="absolute top-4 right-4 h-3 w-3 rounded-full bg-[color:var(--color-accent)] z-10"></div>
+            <div aria-hidden="true" class="absolute top-4 right-9 h-2 w-2 rounded-full bg-[color:var(--color-rose)] z-10"></div>
+            <Image
+              src={portraitApropos}
+              alt="Léa souriante dans son cabinet de drainage lymphatique à Reims la Neuvillette"
+              width={1200}
+              height={1600}
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Texte parcours -->
+      <div class="lg:col-span-3 fade-in">
+        <SectionHeading
+          eyebrow="Mon parcours"
+          title="Un choix guidé par l'envie de prendre soin"
+          align="left"
+        />
+        <div class="space-y-4 text-lg text-[color:var(--color-ink)]">
+          <p>
+            Après un parcours initial dans le domaine du soin et du bien-être, j'ai choisi de me former au drainage lymphatique manuel
+            pour proposer un accompagnement complet, à la croisée de la détente, de la santé et de l'esthétique.
+          </p>
+          <p>
+            Je me forme en continu auprès de praticiens reconnus pour faire évoluer ma pratique et rester attentive aux spécificités de chaque situation :
+            suite de chirurgie esthétique, accompagnement pré/post-partum, préparation à un événement, récupération sportive.
+          </p>
+          <p>
+            Mon cabinet à Reims est un espace pensé pour que vous vous sentiez à l'aise dès votre arrivée : propre, lumineux, au calme.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
