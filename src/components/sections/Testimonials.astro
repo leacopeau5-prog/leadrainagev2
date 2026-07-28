@@ -4,24 +4,61 @@ import Card from '@components/ui/Card.astro';
 import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 
-// TODO: remplacer par de vrais témoignages collectés par Léa.
+// Vrais avis Google — mis à jour manuellement depuis la fiche GMB.
+// Note globale actuelle : 5.0 / 5 sur 5 avis
+const reviewsUrl =
+  'https://www.google.com/search?sca_esv=754e958c4027edbc&q=lea+drainage&sa=X&ved=2ahUKEwicyJuYkfWVAxXqVKQEHd9mFy4Q3PALegQILxAF';
+
+const rating = 5.0;
+const reviewCount = 5;
+
 const testimonials = [
   {
-    text: 'Première séance avec Léa et déjà une vraie sensation de légèreté. Cadre apaisant et accueil parfait.',
-    author: 'Emma',
-    context: 'Drainage bien-être',
+    text: "J'ai fait mon tout premier drainage lymphatique avec Léa et c'était une super expérience. Très relaxant, je me suis sentie à l'aise du début à la fin. Professionnelle, douce et attentive, je recommande sans hésiter.",
+    author: 'Sarah Hiblot',
+    date: 'Mai 2026',
+    stars: 5,
   },
   {
-    text: 'J\'ai suivi un protocole post-opératoire après ma chirurgie. Professionnelle, rassurante, à l\'écoute — je recommande les yeux fermés.',
-    author: 'Chloé',
-    context: 'Drainage post-opératoire',
+    text: "Très belle expérience. Léa est à l'écoute, professionnelle et bienveillante. Le soin a été très bénéfique. Je recommande sans hésiter.",
+    author: 'Bérénice Carlier',
+    date: 'Juillet 2026',
+    stars: 5,
   },
   {
-    text: 'En cure de 5 séances pour ma silhouette, je vois déjà la différence. Léa prend le temps d\'expliquer chaque étape.',
-    author: 'Sophie',
-    context: 'Cure silhouette',
+    text: "Super drainage avec Léa qui est très à l'écoute !! Je recommande.",
+    author: 'm_noor',
+    date: 'Juillet 2026',
+    stars: 5,
+  },
+  {
+    text: 'Une séance très agréable avec un accueil chaleureux et soin de qualité. Je reviendrais avec plaisir.',
+    author: 'Laura Davide',
+    date: 'Juin 2026',
+    stars: 5,
+  },
+  {
+    text: 'Première séance de drainage, super contente.',
+    author: 'Rachel Dhesse',
+    date: 'Juin 2026',
+    stars: 5,
   },
 ];
+
+// Couleurs pastel pour les avatars (déterministe par nom pour cohérence)
+const avatarColors = [
+  { bg: '#F4CCCC', fg: '#771617' }, // rose pâle / bordeaux
+  { bg: '#F9E8B8', fg: '#77551A' }, // beige / brun
+  { bg: '#EDD5DB', fg: '#8A2634' }, // rose poudré
+  { bg: '#E8E1D7', fg: '#5A4A3A' }, // taupe
+  { bg: '#FDE5CA', fg: '#8A4A15' }, // pêche / caramel
+];
+
+function avatarFor(name: string, i: number) {
+  const initial = name.trim().charAt(0).toUpperCase();
+  const color = avatarColors[i % avatarColors.length]!;
+  return { initial, ...color };
+}
 ---
 
 <section class="relative overflow-hidden bg-[color:var(--color-cream)]">
@@ -35,19 +72,115 @@ const testimonials = [
       title="Ce qu'en disent mes clientes"
     />
 
-    <div class="grid md:grid-cols-3 gap-6">
-      {testimonials.map((t) => (
-        <Card class="fade-in" variant="default">
-          <Icon name="lucide:quote" class="h-8 w-8 text-[color:var(--color-accent-300)] mb-4" aria-hidden="true" />
-          <blockquote class="text-base text-[color:var(--color-ink)] italic">
-            « {t.text} »
-          </blockquote>
-          <footer class="mt-5 pt-5 border-t border-[color:var(--color-taupe-100)]">
-            <p class="font-semibold text-[color:var(--color-primary)] m-0">{t.author}</p>
-            <p class="text-xs text-[color:var(--color-ink-muted)] m-0">{t.context}</p>
-          </footer>
-        </Card>
-      ))}
+    <!-- En-tête avec note Google globale -->
+    <div class="mb-10 flex flex-col items-center gap-3 fade-in">
+      <a
+        href={reviewsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 rounded-full bg-white border border-[color:var(--color-taupe-200)] px-5 py-3 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all no-underline"
+        aria-label={`Voir les ${reviewCount} avis Google — note globale ${rating} sur 5`}
+      >
+        <!-- Logo Google (SVG officiel, couleurs) -->
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+
+        <span class="font-semibold text-[color:var(--color-primary)]">Avis Google</span>
+
+        <!-- Étoiles -->
+        <span class="flex items-center gap-0.5" aria-hidden="true">
+          {Array.from({ length: 5 }).map(() => (
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="#E0AE3D">
+              <path d="M10 15.27l-5.18 3.05 1.64-5.81L2 8.24l6-.52L10 2l2 5.72 6 .52-4.46 4.27 1.64 5.81z"/>
+            </svg>
+          ))}
+        </span>
+
+        <span class="font-semibold text-[color:var(--color-ink)]">
+          {rating.toFixed(1).replace('.', ',')} / 5
+        </span>
+
+        <span class="text-sm text-[color:var(--color-ink-muted)] hidden sm:inline">
+          · {reviewCount} avis
+        </span>
+
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" class="text-[color:var(--color-ink-muted)]" aria-hidden="true">
+          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Grille des avis -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((t, i) => {
+        const avatar = avatarFor(t.author, i);
+        return (
+          <Card class="fade-in h-full flex flex-col" variant="default">
+            <!-- Header avatar + nom + Avis Google -->
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="shrink-0 h-11 w-11 rounded-full flex items-center justify-center font-semibold text-base"
+                style={`background:${avatar.bg}; color:${avatar.fg};`}
+                aria-hidden="true"
+              >
+                {avatar.initial}
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-semibold text-[color:var(--color-ink)] m-0 truncate">{t.author}</p>
+                <p class="text-xs text-[color:var(--color-ink-muted)] m-0 flex items-center gap-1">
+                  Avis de
+                  <span class="inline-flex items-center gap-0.5 font-medium">
+                    <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Google
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Étoiles + date -->
+            <div class="flex items-center gap-2 mb-3">
+              <span class="flex items-center gap-0.5" aria-label={`${t.stars} étoiles sur 5`}>
+                {Array.from({ length: t.stars }).map(() => (
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="#E0AE3D">
+                    <path d="M10 15.27l-5.18 3.05 1.64-5.81L2 8.24l6-.52L10 2l2 5.72 6 .52-4.46 4.27 1.64 5.81z"/>
+                  </svg>
+                ))}
+              </span>
+              <span class="text-xs text-[color:var(--color-ink-muted)]">{t.date}</span>
+            </div>
+
+            <!-- Texte de l'avis -->
+            <blockquote class="text-sm text-[color:var(--color-ink)] leading-relaxed flex-1 m-0">
+              « {t.text} »
+            </blockquote>
+          </Card>
+        );
+      })}
+    </div>
+
+    <!-- CTA voir tous les avis -->
+    <div class="mt-10 text-center">
+      <a
+        href={reviewsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] hover:text-[color:var(--color-rose)] transition-colors"
+      >
+        Voir tous les avis Google
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </a>
     </div>
 
   </div>
