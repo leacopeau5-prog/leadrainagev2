@@ -6,6 +6,7 @@ import AboutTeaser from '@components/sections/AboutTeaser.astro';
 import ServicesPreview from '@components/sections/ServicesPreview.astro';
 import Benefits from '@components/sections/Benefits.astro';
 import Testimonials from '@components/sections/Testimonials.astro';
+import BlogPreview from '@components/sections/BlogPreview.astro';
 import FAQ from '@components/sections/FAQ.astro';
 import CTASection from '@components/sections/CTASection.astro';
 import { localBusinessSchema, faqSchema } from '@utils/seo';
@@ -47,6 +48,7 @@ const schema = [localBusinessSchema(), faqSchema(faqItems)];
   <ServicesPreview />
   <Benefits />
   <Testimonials />
+  <BlogPreview />
   <FAQ items={faqItems} />
   <CTASection />
 </BaseLayout>
