@@ -1,5 +1,5 @@
 ---
-title: "Quelle eau boire pour une cure detox drainante ? Résidu à sec et minéraux expliqués"
+title: "Quel type d'eau buvez-vous ? Voici comment réduire les ballonnements"
 description: "Eau faiblement minéralisée, résidu à sec, cure de drainage : comprendre pourquoi le choix de l'eau compte et comment bien s'hydrater au quotidien."
 publishDate: 2026-08-20
 author: "Léa"
