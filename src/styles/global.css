@@ -157,14 +157,6 @@
     .fade-in { opacity: 1; transform: none; transition: none; }
   }
 
-  .scrollbar-hide {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 /* Skip-link (a11y) — masqué sauf au focus clavier */
