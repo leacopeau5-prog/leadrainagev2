@@ -1,0 +1,84 @@
+---
+/**
+ * Bandeau rotator sous le header — affiche un titre d'article à la fois,
+ * pleine largeur, avec transition douce en fondu vers le titre suivant.
+ * Pause au survol/focus. Respecte prefers-reduced-motion.
+ */
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 6);
+
+// Chaque titre est affiché "perTitle" secondes ; le cycle complet dure N × perTitle
+const perTitle = 4; // secondes de visibilité par titre
+const total = posts.length * perTitle;
+---
+
+{posts.length > 0 && (
+  <aside
+    class="blog-ticker sticky top-16 md:top-20 z-30 w-full border-b border-[color:var(--color-taupe-200)] bg-[color:var(--color-cream)] shadow-[var(--shadow-soft)]"
+    aria-label="Derniers articles du blog"
+    style={`--per-title: ${perTitle}s; --total: ${total}s;`}
+  >
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rotator relative min-h-[3rem] md:min-h-[3.25rem] flex items-center justify-center">
+        {posts.map((post, i) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="rotator-item absolute inset-0 flex items-center justify-center gap-3 text-sm md:text-base text-[color:var(--color-ink)] hover:text-[color:var(--color-primary)] no-underline px-2"
+            style={`--i: ${i};`}
+          >
+            <span class="font-medium truncate">{post.data.title}</span>
+            <Icon
+              name="lucide:arrow-right"
+              class="h-4 w-4 shrink-0 opacity-60 transition-transform hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </aside>
+)}
+
+<style>
+  .rotator-item {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: rotate-title var(--total, 24s) infinite;
+    animation-delay: calc(var(--i, 0) * var(--per-title, 4s));
+    will-change: opacity, transform;
+  }
+
+  /* Fenêtre de visibilité : chaque titre est visible ~1/N du cycle,
+     avec de brèves transitions in/out (~250 ms). Les pourcentages ci-dessous
+     supposent 6 titres × 4 s = 24 s (soit ~16,67 % par titre) — l'entrée
+     rapide + affichage + sortie tiennent dans ce budget. */
+  @keyframes rotate-title {
+    0%    { opacity: 0; transform: translateY(6px); }
+    1%    { opacity: 1; transform: translateY(0); }
+    15%   { opacity: 1; transform: translateY(0); }
+    17%   { opacity: 0; transform: translateY(-6px); }
+    100%  { opacity: 0; transform: translateY(-6px); }
+  }
+
+  /* Pause au survol souris / focus clavier pour laisser lire ou cliquer */
+  .blog-ticker:hover .rotator-item,
+  .blog-ticker:focus-within .rotator-item {
+    animation-play-state: paused;
+  }
+
+  /* Accessibilité : affichage statique du premier titre si l'utilisateur
+     préfère moins d'animation. Les autres restent invisibles. */
+  @media (prefers-reduced-motion: reduce) {
+    .rotator-item {
+      animation: none;
+    }
+    .rotator-item:first-child {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

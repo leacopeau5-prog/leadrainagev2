@@ -2,6 +2,7 @@
 import '@styles/global.css';
 import { site } from '@utils/site';
 import Header from '@components/layout/Header.astro';
+import BlogTickerBar from '@components/layout/BlogTickerBar.astro';
 import Footer from '@components/layout/Footer.astro';
 
 interface Props {
@@ -25,6 +26,10 @@ const {
 const fullTitle = title === site.name ? title : `${title} — ${site.name}`;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
 const imageUrl = image.startsWith('http') ? image : new URL(image, site.url).href;
+
+// Le ticker "derniers articles" est masqué dans la section blog
+// (on n'annonce pas les articles à quelqu'un qui les consulte déjà)
+const isBlogPage = Astro.url.pathname === '/blog' || Astro.url.pathname.startsWith('/blog/');
 
 const schemas = schema
   ? Array.isArray(schema)
@@ -85,6 +90,7 @@ const schemas = schema
     <a href="#contenu" class="skip-link">Aller au contenu principal</a>
 
     <Header />
+    {!isBlogPage && <BlogTickerBar />}
 
     <main id="contenu" class="flex-1">
       <slot />
