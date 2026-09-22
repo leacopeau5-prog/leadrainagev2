@@ -7,7 +7,7 @@ export function localBusinessSchema() {
     '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
     '@id': `${site.url}/#localbusiness`,
     name: site.name,
-    description: `Cabinet de drainage lymphatique manuel à Reims (Neuvillette). Séances bien-être, post-opératoire, récupération sportive et cure silhouette. Sur rendez-vous samedi et dimanche.`,
+    description: `Cabinet de drainage lymphatique manuel à Bétheny (agglomération de Reims). Séances bien-être, post-opératoire, récupération sportive et cure silhouette. Sur rendez-vous samedi et dimanche.`,
     url: site.url,
     telephone: site.contact.phone || undefined,
     email: site.contact.email || undefined,
@@ -29,8 +29,8 @@ export function localBusinessSchema() {
       longitude: site.contact.address.longitude,
     },
     areaServed: [
-      { '@type': 'City', name: 'Reims' },
       { '@type': 'City', name: 'Bétheny' },
+      { '@type': 'City', name: 'Reims' },
       { '@type': 'City', name: 'Witry-lès-Reims' },
       { '@type': 'City', name: 'Cernay-lès-Reims' },
       { '@type': 'City', name: 'Saint-Brice-Courcelles' },

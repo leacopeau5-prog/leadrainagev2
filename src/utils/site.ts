@@ -18,15 +18,14 @@ export const site = {
     whatsapp: 'https://wa.me/33695226715',
     email: 'leacopeau5@gmail.com',
     address: {
-      street: '24 rue de Bétheny',
-      district: 'la Neuvillette',
-      postalCode: '51100',
-      city: 'Reims',
+      street: '3B Allée Ambroise Croizat',
+      district: 'Le Petit Bétheny',
+      postalCode: '51450',
+      city: 'Bétheny',
       country: 'France',
-      // Coordonnées GPS vérifiées via Nominatim — Actipole La Neuvillette, Reims
-      // ⚠️ Important : il existe un autre 24 rue de Bétheny dans le quartier Jamin
-      latitude: 49.2868762,
-      longitude: 4.0155508,
+      // Coordonnées GPS vérifiées via Nominatim (rue) — Allée Ambroise Croizat, Bétheny
+      latitude: 49.2848092,
+      longitude: 4.0544962,
     },
     hours: {
       monday: 'Fermé',

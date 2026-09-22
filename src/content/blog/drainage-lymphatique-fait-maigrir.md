@@ -187,4 +187,4 @@ Si vous cherchez la **vérité** avant de dépenser votre argent, vous savez mai
 À très vite,
 Léa
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Ces informations sont générales et ne remplacent pas un avis médical personnalisé, notamment en cas de trouble hormonal, métabolique ou de nutrition.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Ces informations sont générales et ne remplacent pas un avis médical personnalisé, notamment en cas de trouble hormonal, métabolique ou de nutrition.*

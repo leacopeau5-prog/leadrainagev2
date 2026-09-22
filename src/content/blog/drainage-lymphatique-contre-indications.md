@@ -179,7 +179,7 @@ Au cabinet, je vous demande **systématiquement** :
 
 ## Comment se déroule l'évaluation au cabinet
 
-Au cabinet à Reims la Neuvillette, **chaque première séance commence par un échange de 5 à 10 minutes** :
+Au cabinet à Bétheny (agglomération de Reims), **chaque première séance commence par un échange de 5 à 10 minutes** :
 
 1. **Anamnèse rapide** : antécédents, traitements, situation actuelle
 2. **Vos objectifs** : pourquoi vous venez aujourd'hui

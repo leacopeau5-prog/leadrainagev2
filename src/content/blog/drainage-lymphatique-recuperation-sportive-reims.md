@@ -117,7 +117,7 @@ La **musculation, le CrossFit ou le fitness intense** créent beaucoup de micro-
 
 ## Comment se déroule une séance de drainage récupération sportive à Reims
 
-Si vous décidez de tenter l'expérience à mon cabinet de **Reims la Neuvillette**, voici ce à quoi vous attendre concrètement.
+Si vous décidez de tenter l'expérience à mon cabinet de **Bétheny (agglomération de Reims)**, voici ce à quoi vous attendre concrètement.
 
 **Avant la séance** : on échange 5 à 10 minutes sur votre semaine, vos volumes d'entraînement, votre prochaine échéance, vos zones les plus sollicitées (jambes, dos, bras selon votre sport). Je vérifie aussi qu'il n'y a pas de **contre-indication** ce jour-là (blessure aiguë, infection, fièvre…).
 
@@ -171,4 +171,4 @@ Si vous habitez **Reims, Bétheny, Witry-lès-Reims, Cernay-lès-Reims, Saint-Br
 
 → [Découvrir la prestation détaillée](/prestations/recuperation-sportive) · [Réserver en ligne](https://cal.eu/lea-drainage/recuperation-sportive) · [Trouver le cabinet](/contact)
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Mis à jour en mai 2026.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Mis à jour en mai 2026.*

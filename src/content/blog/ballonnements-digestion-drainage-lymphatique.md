@@ -119,7 +119,7 @@ Voici les fourchettes que je conseille selon la situation :
 
 ## Comment se déroule une séance orientée "ventre / digestion"
 
-Au cabinet à Reims la Neuvillette, une séance ciblée digestion suit ce déroulé :
+Au cabinet à Bétheny (agglomération de Reims), une séance ciblée digestion suit ce déroulé :
 
 ### Avant la séance (10 min)
 
@@ -194,7 +194,7 @@ En cas de **syndrome de l'intestin irritable (SII)**, le drainage est **généra
 
 ## À Reims : réserver une séance "ventre / digestion"
 
-Au cabinet de Reims la Neuvillette, je propose des séances de **drainage lymphatique bien-être** qui peuvent être orientées "digestion" selon votre demande.
+Au cabinet de Bétheny (agglomération de Reims), je propose des séances de **drainage lymphatique bien-être** qui peuvent être orientées "digestion" selon votre demande.
 
 - **Tarif** : 80 € la séance (60 min)
 - **Cabinet ouvert** : samedi et dimanche, 10h-18h
@@ -258,4 +258,4 @@ Si vous en avez marre de finir vos journées avec un jean qui serre, une séance
 À très vite,
 Léa
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Ces informations sont générales et ne remplacent pas un avis médical. En cas de symptômes digestifs persistants, consultez votre médecin ou un gastro-entérologue.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Ces informations sont générales et ne remplacent pas un avis médical. En cas de symptômes digestifs persistants, consultez votre médecin ou un gastro-entérologue.*

@@ -101,7 +101,7 @@ Un corps moins surchargé en liquides récupère plus vite après l'accouchement
 
 ## Comment se déroule une séance pendant la grossesse
 
-Au cabinet à Reims la Neuvillette, voici à quoi vous attendre concrètement.
+Au cabinet à Bétheny (agglomération de Reims), voici à quoi vous attendre concrètement.
 
 ### Avant la séance
 
@@ -192,7 +192,7 @@ Dans tous ces cas : **on reporte et on s'en remet à votre médecin/sage-femme.*
 
 ## À Reims : où réserver une séance pendant la grossesse
 
-À mon cabinet à **Reims la Neuvillette**, je reçois les femmes enceintes (à partir du 2e trimestre) et les jeunes mamans.
+À mon cabinet à **Bétheny (agglomération de Reims)**, je reçois les femmes enceintes (à partir du 2e trimestre) et les jeunes mamans.
 
 ### Modalités
 
@@ -263,4 +263,4 @@ Si vous êtes enceinte ou jeune maman à Reims et que vous voulez du soulagement
 À très vite,
 Léa
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Cet article est informationnel et ne remplace pas l'avis de votre sage-femme ou gynécologue.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Cet article est informationnel et ne remplace pas l'avis de votre sage-femme ou gynécologue.*

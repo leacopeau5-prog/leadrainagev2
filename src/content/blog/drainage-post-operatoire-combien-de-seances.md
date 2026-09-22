@@ -174,7 +174,7 @@ Toutes les masseuses ne sont pas équipées pour faire du drainage post-opérato
 
 ## À Reims : combien ça coûte et où s'adresser
 
-À mon cabinet à **Reims la Neuvillette**, le drainage lymphatique post-opératoire est à :
+À mon cabinet à **Bétheny (agglomération de Reims)**, le drainage lymphatique post-opératoire est à :
 
 - **80 € la séance de 60 minutes**
 - Aucun forfait pré-payé pour le post-op spécifiquement (chaque cas étant unique, on ajuste séance par séance)
@@ -239,4 +239,4 @@ Si vous préparez une intervention ou que vous êtes en post-op à Reims, **cont
 
 → [Voir la prestation Drainage post-opératoire](/prestations/drainage-post-operatoire) · [Réserver en ligne](https://cal.eu/lea-drainage/post-operatoire) · [Me contacter](/contact)
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Pour les protocoles post-opératoires, je travaille toujours en concertation avec le chirurgien de la patiente.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Pour les protocoles post-opératoires, je travaille toujours en concertation avec le chirurgien de la patiente.*

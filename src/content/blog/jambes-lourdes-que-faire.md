@@ -200,7 +200,7 @@ Si vous voulez une méthode simple à mettre en place dès demain, voici une rou
 
 Si vous êtes à Reims ou dans les communes alentour et que vos jambes lourdes vous gâchent l'été (ou toute l'année), une séance de **drainage lymphatique manuel** peut vraiment faire la différence.
 
-Au cabinet à **Reims la Neuvillette** :
+Au cabinet à **Bétheny (agglomération de Reims)** :
 - **Séance drainage bien-être** — 60 min — 80 €
 - Cabinet ouvert **samedi et dimanche 10h-18h**
 - Focus sur les jambes selon votre demande
@@ -261,4 +261,4 @@ Les jambes lourdes ne sont **pas une fatalité**. En combinant **mouvement quoti
 À très vite,
 Léa
 
-*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Reims la Neuvillette. Ces informations sont générales et ne remplacent pas un avis médical personnalisé. En cas de douleur, chaleur ou œdème inhabituel, consultez un médecin sans attendre.*
+*Article rédigé par Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Ces informations sont générales et ne remplacent pas un avis médical personnalisé. En cas de douleur, chaleur ou œdème inhabituel, consultez un médecin sans attendre.*
