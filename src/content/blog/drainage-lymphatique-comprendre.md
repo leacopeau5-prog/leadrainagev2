@@ -4,6 +4,8 @@ description: "Qu'est-ce que le drainage lymphatique, à qui s'adresse-t-il, comb
 publishDate: 2026-04-24
 author: "Léa"
 tags: ["bases", "système lymphatique", "bien-être"]
+cover: "../../assets/blog/comprendre-drainage.jpg"
+coverAlt: "Femme allongée pratiquant un massage facial doux lors d'une séance de drainage, ambiance apaisante avec tapis traditionnel"
 draft: false
 ---
 

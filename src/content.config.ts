@@ -30,14 +30,16 @@ const services = defineCollection({
 /** Articles de blog. */
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('Léa'),
     tags: z.array(z.string()).default([]),
-    cover: z.string().optional(),
+    /** Image hero affichée en haut de l'article (optimisée par Astro). */
+    cover: image().optional(),
+    /** Texte alternatif descriptif de l'image hero (a11y). */
     coverAlt: z.string().optional(),
     draft: z.boolean().default(false),
   }),

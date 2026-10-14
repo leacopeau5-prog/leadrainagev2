@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import CTASection from '@components/sections/CTASection.astro';
 import { Icon } from 'astro-icon/components';
@@ -29,6 +30,7 @@ const articleSchema = {
   author: { '@type': 'Person', name: post.data.author },
   publisher: { '@type': 'Organization', name: site.name, url: site.url },
   mainEntityOfPage: url,
+  ...(post.data.cover && { image: new URL(post.data.cover.src, site.url).href }),
 };
 
 const schema = [
@@ -49,6 +51,23 @@ const formatDate = (d: Date) =>
   description={post.data.description}
   schema={schema}
 >
+  {post.data.cover && (
+    <div class="relative w-full overflow-hidden bg-[color:var(--color-cream)]">
+      <Image
+        src={post.data.cover}
+        alt={post.data.coverAlt ?? post.data.title}
+        widths={[640, 1024, 1600]}
+        sizes="100vw"
+        class="w-full h-[28vh] md:h-[40vh] lg:h-[48vh] object-cover"
+        loading="eager"
+        format="webp"
+        quality={78}
+      />
+      <!-- gradient en bas pour transition vers le contenu article -->
+      <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-white"></div>
+    </div>
+  )}
+
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
     <nav aria-label="Fil d'Ariane" class="text-sm text-[color:var(--color-ink-muted)] mb-6">
       <ol class="flex items-center gap-2 flex-wrap">
