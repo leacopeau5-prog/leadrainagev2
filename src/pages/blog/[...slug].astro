@@ -52,19 +52,17 @@ const formatDate = (d: Date) =>
   schema={schema}
 >
   {post.data.cover && (
-    <div class="relative w-full overflow-hidden bg-[color:var(--color-cream)]">
+    <div class="relative mx-auto max-w-5xl aspect-[16/9] w-full overflow-hidden md:rounded-[var(--radius-xl)] md:mt-6 bg-[color:var(--color-cream)]">
       <Image
         src={post.data.cover}
         alt={post.data.coverAlt ?? post.data.title}
         widths={[640, 1024, 1600]}
-        sizes="100vw"
-        class="w-full h-[28vh] md:h-[40vh] lg:h-[48vh] object-cover"
+        sizes="(min-width: 1024px) 1024px, 100vw"
+        class="w-full h-full object-cover"
         loading="eager"
         format="webp"
         quality={78}
       />
-      <!-- gradient en bas pour transition vers le contenu article -->
-      <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-white"></div>
     </div>
   )}
 
