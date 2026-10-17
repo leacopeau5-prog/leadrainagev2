@@ -6,6 +6,8 @@ author: "Léa"
 tags: ["récupération sportive", "drainage lymphatique", "Reims", "course à pied", "triathlon"]
 cover: "../../assets/blog/recuperation-sportive.jpg"
 coverAlt: "Femme pratiquant une posture de yoga guerrier devant une fenêtre ouverte sur un paysage de montagnes, lumière chaude d'automne"
+heroImage: "../../assets/blog/recuperation-sportive-hero.jpg"
+heroAlt: "Sportive en bain glacé après l'effort, séance de récupération intensive en extérieur"
 draft: false
 ---
 
