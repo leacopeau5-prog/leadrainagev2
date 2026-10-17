@@ -4,6 +4,10 @@ description: "Eau faiblement minéralisée, résidu à sec, cure de drainage : c
 publishDate: 2026-08-20
 author: "Léa"
 tags: ["hydratation", "eau", "détox", "drainage lymphatique", "bien-être"]
+cover: "../../assets/blog/eau-hydratation.jpg"
+coverAlt: "Femme en chemise rayée se servant un verre d'eau depuis une bouteille, geste simple d'hydratation quotidienne"
+heroImage: "../../assets/blog/eau-hydratation-hero.jpg"
+heroAlt: "Verre et bouteille d'eau sur une table claire, moment calme consacré à l'hydratation"
 draft: false
 ---
 
