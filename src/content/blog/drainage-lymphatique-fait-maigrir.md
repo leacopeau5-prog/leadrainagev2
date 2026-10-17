@@ -4,6 +4,10 @@ description: "Perte de poids, ventre plat, cellulite : ce que le drainage lympha
 publishDate: 2026-07-15
 author: "Léa"
 tags: ["perte de poids", "cellulite", "silhouette", "drainage lymphatique", "Reims"]
+cover: "../../assets/blog/maigrir.jpg"
+coverAlt: "Ventre tonique perlé de gouttes d'eau en tenue de sport blanche, silhouette fine et travaillée"
+heroImage: "../../assets/blog/maigrir-hero.jpg"
+heroAlt: "Taille affinée et ventre plat couverts de fines gouttelettes après l'effort, silhouette sportive"
 draft: false
 ---
 
