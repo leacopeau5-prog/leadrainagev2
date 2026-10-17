@@ -4,6 +4,10 @@ description: "Jambes lourdes le soir, chevilles gonflées, sensation de bouillon
 publishDate: 2026-08-05
 author: "Léa"
 tags: ["jambes lourdes", "circulation", "drainage lymphatique", "bien-être", "Reims"]
+cover: "../../assets/blog/jambes-lourdes.jpg"
+coverAlt: "Quatre paires de jambes relevées en l'air, posture classique contre un mur pour soulager les jambes lourdes"
+heroImage: "../../assets/blog/jambes-lourdes-hero.jpg"
+heroAlt: "Jambes relevées à la verticale sur fond clair, posture classique pour drainer et soulager la lourdeur veineuse"
 draft: false
 ---
 
