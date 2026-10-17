@@ -6,6 +6,8 @@ author: "Léa"
 tags: ["post-opératoire", "drainage lymphatique", "Reims", "liposuccion", "abdominoplastie", "chirurgie esthétique"]
 cover: "../../assets/blog/post-operatoire.jpg"
 coverAlt: "Femme en méditation apaisée dans un parc, incarnant la récupération et le retour au calme après une intervention"
+heroImage: "../../assets/blog/post-operatoire-hero.jpg"
+heroAlt: "Femme en respiration consciente dans un parc, instant de récupération douce après une intervention"
 draft: false
 ---
 
