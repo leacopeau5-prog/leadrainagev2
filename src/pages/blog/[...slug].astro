@@ -30,7 +30,9 @@ const articleSchema = {
   author: { '@type': 'Person', name: post.data.author },
   publisher: { '@type': 'Organization', name: site.name, url: site.url },
   mainEntityOfPage: url,
-  ...(post.data.cover && { image: new URL(post.data.cover.src, site.url).href }),
+  ...((post.data.heroImage || post.data.cover) && {
+    image: new URL((post.data.heroImage ?? post.data.cover)!.src, site.url).href,
+  }),
 };
 
 const schema = [
@@ -51,9 +53,23 @@ const formatDate = (d: Date) =>
   description={post.data.description}
   schema={schema}
 >
-  {post.data.cover && (
+  {post.data.heroImage ? (
+    /* Hero dédié : image panoramique affichée en object-cover plein cadre */
     <div class="relative w-full h-[32vh] md:h-[38vh] overflow-hidden bg-[color:var(--color-cream)]">
-      <!-- Fond : même image, étirée et floutée pour habiller toute la largeur -->
+      <Image
+        src={post.data.heroImage}
+        alt={post.data.heroAlt ?? post.data.coverAlt ?? post.data.title}
+        widths={[1024, 1600, 2400]}
+        sizes="100vw"
+        class="w-full h-full object-cover"
+        loading="eager"
+        format="webp"
+        quality={82}
+      />
+    </div>
+  ) : post.data.cover && (
+    /* Fallback : vignette 16:9 en object-contain avec fond flou pour habiller la largeur */
+    <div class="relative w-full h-[32vh] md:h-[38vh] overflow-hidden bg-[color:var(--color-cream)]">
       <Image
         src={post.data.cover}
         alt=""
@@ -65,9 +81,7 @@ const formatDate = (d: Date) =>
         quality={60}
         aria-hidden="true"
       />
-      <!-- Overlay crème léger pour que le flou reste doux et pas distrayant -->
       <div aria-hidden="true" class="absolute inset-0 bg-[color:var(--color-cream)]/30"></div>
-      <!-- Avant-plan : image nette, non croppée, centrée -->
       <Image
         src={post.data.cover}
         alt={post.data.coverAlt ?? post.data.title}

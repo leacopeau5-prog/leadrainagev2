@@ -37,10 +37,14 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     author: z.string().default('Léa'),
     tags: z.array(z.string()).default([]),
-    /** Image hero affichée en haut de l'article (optimisée par Astro). */
+    /** Vignette affichée dans la liste /blog (16:9, 1600×900). */
     cover: image().optional(),
-    /** Texte alternatif descriptif de l'image hero (a11y). */
+    /** Texte alternatif descriptif de la vignette (a11y). */
     coverAlt: z.string().optional(),
+    /** Image hero large dédiée à la page article (format cinéma, ex 2400×900). */
+    heroImage: image().optional(),
+    /** Texte alternatif descriptif de l'image hero (a11y). */
+    heroAlt: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

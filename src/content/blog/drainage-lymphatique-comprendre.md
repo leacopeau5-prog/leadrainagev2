@@ -6,6 +6,8 @@ author: "Léa"
 tags: ["bases", "système lymphatique", "bien-être"]
 cover: "../../assets/blog/comprendre-drainage.jpg"
 coverAlt: "Femme allongée pratiquant un massage facial doux lors d'une séance de drainage, ambiance apaisante avec tapis traditionnel"
+heroImage: "../../assets/blog/comprendre-drainage-hero.jpg"
+heroAlt: "Portrait apaisé d'une femme recevant un soin cocooning, cadre doux et chaleureux"
 draft: false
 ---
 
