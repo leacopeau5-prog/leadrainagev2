@@ -4,6 +4,10 @@ description: "Rétention d'eau, jambes lourdes, ventre gonflé, prise de poids :
 publishDate: 2026-09-28
 author: "Léa"
 tags: ["ménopause", "préménopause", "drainage lymphatique", "hormones", "Bétheny", "Reims"]
+cover: "../../assets/blog/menopause.jpg"
+coverAlt: "Femme aux cheveux clairs assise dans son salon, s'éventant lors d'une bouffée de chaleur"
+heroImage: "../../assets/blog/menopause-hero.jpg"
+heroAlt: "Femme en pleine bouffée de chaleur se rafraîchissant avec un éventail orange, scène quotidienne de la ménopause"
 draft: false
 ---
 
