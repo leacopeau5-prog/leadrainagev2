@@ -4,6 +4,10 @@ description: "Ventre gonflé après les repas, digestion lente, sensation de lou
 publishDate: 2026-09-12
 author: "Léa"
 tags: ["ballonnements", "digestion", "ventre gonflé", "drainage lymphatique", "Reims"]
+cover: "../../assets/blog/ballonnements.jpg"
+coverAlt: "Femme assise sur un lit, les mains posées sur le bas-ventre, geste évoquant l'inconfort digestif et les ballonnements"
+heroImage: "../../assets/blog/ballonnements-hero.jpg"
+heroAlt: "Mains posées sur le ventre bas, lumière douce du matin, moment d'écoute du corps face aux ballonnements"
 draft: false
 ---
 
