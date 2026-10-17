@@ -52,16 +52,31 @@ const formatDate = (d: Date) =>
   schema={schema}
 >
   {post.data.cover && (
-    <div class="relative mx-auto max-w-5xl aspect-[16/9] w-full overflow-hidden md:rounded-[var(--radius-xl)] md:mt-6 bg-[color:var(--color-cream)]">
+    <div class="relative w-full h-[32vh] md:h-[38vh] overflow-hidden bg-[color:var(--color-cream)]">
+      <!-- Fond : même image, étirée et floutée pour habiller toute la largeur -->
+      <Image
+        src={post.data.cover}
+        alt=""
+        widths={[640, 1024, 1600]}
+        sizes="100vw"
+        class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-70"
+        loading="eager"
+        format="webp"
+        quality={60}
+        aria-hidden="true"
+      />
+      <!-- Overlay crème léger pour que le flou reste doux et pas distrayant -->
+      <div aria-hidden="true" class="absolute inset-0 bg-[color:var(--color-cream)]/30"></div>
+      <!-- Avant-plan : image nette, non croppée, centrée -->
       <Image
         src={post.data.cover}
         alt={post.data.coverAlt ?? post.data.title}
         widths={[640, 1024, 1600]}
         sizes="(min-width: 1024px) 1024px, 100vw"
-        class="w-full h-full object-cover"
+        class="relative mx-auto h-full w-auto object-contain"
         loading="eager"
         format="webp"
-        quality={78}
+        quality={82}
       />
     </div>
   )}
