@@ -4,6 +4,8 @@ description: "Vous courez, pédalez ou nagez régulièrement à Reims ? Découvr
 publishDate: 2026-05-05
 author: "Léa"
 tags: ["récupération sportive", "drainage lymphatique", "Reims", "course à pied", "triathlon"]
+cover: "../../assets/blog/recuperation-sportive.jpg"
+coverAlt: "Femme pratiquant une posture de yoga guerrier devant une fenêtre ouverte sur un paysage de montagnes, lumière chaude d'automne"
 draft: false
 ---
 
