@@ -4,6 +4,10 @@ description: "Phlébite, cancer, infection, grossesse, cardio… Tour complet de
 publishDate: 2026-05-30
 author: "Léa"
 tags: ["contre-indications", "drainage lymphatique", "sécurité", "Reims"]
+cover: "../../assets/blog/contre-indications.jpg"
+coverAlt: "Femme allongée sur le côté en tenue nude, zone abdominale au premier plan — rappel des zones sensibles à prendre en compte avant un drainage"
+heroImage: "../../assets/blog/contre-indications-hero.jpg"
+heroAlt: "Vue rapprochée du ventre et du bassin d'une femme au repos, évoquant les précautions à prendre avant une séance de drainage"
 draft: false
 ---
 
