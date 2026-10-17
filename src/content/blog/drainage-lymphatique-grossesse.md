@@ -4,6 +4,10 @@ description: "Jambes lourdes, gonflement, fatigue : le drainage lymphatique peut
 publishDate: 2026-06-15
 author: "Léa"
 tags: ["grossesse", "drainage lymphatique", "jambes lourdes", "post-partum", "Reims"]
+cover: "../../assets/blog/grossesse.jpg"
+coverAlt: "Future maman les mains posées sur son ventre arrondi, lumière douce du matin"
+heroImage: "../../assets/blog/grossesse-hero.jpg"
+heroAlt: "Ventre arrondi de future maman tendrement enlacé par ses mains, atmosphère douce et apaisée"
 draft: false
 ---
 
