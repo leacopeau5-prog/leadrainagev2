@@ -4,6 +4,10 @@ description: "Rhumes à répétition, fatigue de changement de saison, défenses
 publishDate: 2026-10-14
 author: "Léa"
 tags: ["immunité", "automne", "hiver", "drainage lymphatique", "fatigue de saison", "Bétheny", "Reims"]
+cover: "../../assets/blog/immunite-hiver.jpg"
+coverAlt: "Femme enrhumée dans son lit se mouchant, premier froid de la saison et défenses immunitaires fragilisées"
+heroImage: "../../assets/blog/immunite-hiver-hero.jpg"
+heroAlt: "Femme fatiguée dans son lit se mouchant à l'arrivée de l'hiver, moment typique de baisse d'immunité"
 draft: false
 ---
 
