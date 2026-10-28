@@ -11,7 +11,7 @@ heroAlt: "Marquage pré-opératoire d'une abdominoplastie sur le ventre d'une pa
 draft: false
 ---
 
-L'abdominoplastie — aussi appelée *tummy tuck* ou plastie abdominale — est l'une des interventions esthétiques les plus transformantes… et aussi les plus exigeantes en récupération. Si vous préparez l'opération ou si vous venez d'en sortir, votre chirurgien vous a sûrement parlé du **drainage lymphatique manuel** : *combien de séances, quand commencer, est-ce que c'est obligatoire, est-ce que ça fait mal ?* Cet article répond à toutes vos questions, sans langue de bois. Si vous habitez Bétheny ou l'agglomération de Reims, vous trouverez en fin d'article comment réserver au cabinet.
+L'abdominoplastie — aussi appelée *tummy tuck* ou plastie abdominale — est l'une des interventions esthétiques les plus transformantes… et aussi les plus exigeantes en récupération. Si vous préparez l'opération ou si vous venez d'en sortir, votre chirurgien vous a sûrement parlé du **drainage lymphatique manuel** : *combien de séances, quand commencer, est-ce que c'est obligatoire, est-ce que ça fait mal ?* Cet article répond à toutes vos questions, sans langue de bois. Si vous habitez Bétheny ou l'agglomération de Reims, vous trouverez en fin d'article comment réserver au cabinet. Bonne lecture.
 
 > ⚠️ **Avertissement** : cet article est informationnel. Il **ne remplace jamais** les consignes de votre chirurgien ni l'avis de votre équipe médicale. Toujours obtenir le **feu vert écrit** du chirurgien avant la première séance.
 
