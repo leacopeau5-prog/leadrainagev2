@@ -7,7 +7,7 @@ frequency: "Protocole recommandé : 8 à 15 séances selon l'intervention, à ra
 icon: "lucide:stethoscope"
 featured: true
 heroImage: "../../assets/photos/hero-drainage-post-operatoire.jpg"
-heroAlt: "Mains expertes appliquant un massage doux du visage, geste apaisant et professionnel"
+heroAlt: "Consultation médicale post-opératoire : patiente échangeant avec un professionnel de santé en blouse blanche prenant des notes"
 bookingUrl: "https://cal.eu/lea-drainage/post-operatoire"
 forWho:
   - "Vous avez récemment bénéficié d'une liposuccion, d'un lifting, d'une abdominoplastie ou d'une chirurgie mammaire"
