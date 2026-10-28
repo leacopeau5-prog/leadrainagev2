@@ -7,7 +7,7 @@ frequency: "Idéalement 24 à 48 h après une séance intense, ou en cure pendan
 icon: "lucide:dumbbell"
 featured: true
 heroImage: "../../assets/photos/hero-recuperation-sportive.jpg"
-heroAlt: "Sportives en plein effort sur tapis de yoga, lumière naturelle"
+heroAlt: "Sportive concentrée sur un vélo de spinning en salle, séance de cardio intense"
 bookingUrl: "https://cal.eu/lea-drainage/recuperation-sportive"
 forWho:
   - "Vous pratiquez un sport de manière régulière (running, cyclisme, fitness, sports collectifs…)"
