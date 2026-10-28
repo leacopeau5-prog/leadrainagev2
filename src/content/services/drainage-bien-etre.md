@@ -7,7 +7,7 @@ frequency: "Selon vos besoins : séance ponctuelle ou cure régulière"
 icon: "lucide:sparkles"
 featured: true
 heroImage: "../../assets/photos/hero-bien-etre.jpg"
-heroAlt: "Massage drainant à l'huile sur le dos, dans une ambiance spa apaisante"
+heroAlt: "Femme recevant un drainage lymphatique du décolleté, mains apaisantes de la praticienne, ambiance cocooning"
 bookingUrl: "https://cal.eu/lea-drainage/drainage-bienetre"
 forWho:
   - "Vous vous sentez fatiguée, tendue, avec les jambes lourdes"
