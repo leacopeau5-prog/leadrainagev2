@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Navigation from './Navigation.astro';
 import BookingCTA from '@components/ui/BookingCTA.astro';
+import GiftCardCTA from '@components/ui/GiftCardCTA.astro';
 import logo from '@assets/logo/logo-lea-drainage-horizontal.png';
 
 const current = Astro.url.pathname;
@@ -31,6 +32,10 @@ const current = Astro.url.pathname;
 
       <!-- CTA desktop + burger mobile -->
       <div class="flex items-center gap-3">
+        <!-- Carte cadeau : seulement en grand écran, la place manque en dessous de xl (1280px) -->
+        <div class="hidden xl:block">
+          <GiftCardCTA size="sm" variant="secondary" />
+        </div>
         <div class="hidden md:block">
           <BookingCTA size="sm" variant="accent" />
         </div>
@@ -54,8 +59,9 @@ const current = Astro.url.pathname;
   <!-- Menu mobile -->
   <div id="mobile-menu" hidden class="md:hidden border-t border-white/10 bg-[color:var(--color-primary)]">
     <Navigation current={current} variant="mobile" />
-    <div class="px-4 pb-4">
+    <div class="px-4 pb-4 flex flex-col gap-3">
       <BookingCTA size="md" variant="accent" fullWidth />
+      <GiftCardCTA size="md" variant="secondary" fullWidth />
     </div>
   </div>
 </header>
