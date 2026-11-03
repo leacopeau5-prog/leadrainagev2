@@ -1,0 +1,33 @@
+---
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '@utils/site';
+
+interface Props {
+  label?: string;
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'accent' | 'ghost';
+  fullWidth?: boolean;
+  withIcon?: boolean;
+}
+
+const {
+  label = 'Offrir une carte cadeau',
+  size = 'md',
+  variant = 'secondary',
+  fullWidth = false,
+  withIcon = true,
+} = Astro.props;
+---
+
+<Button
+  href={site.giftCard.url}
+  variant={variant}
+  size={size}
+  fullWidth={fullWidth}
+  external
+  ariaLabel="Offrir une carte cadeau — paiement sécurisé via Stripe, ouvre un nouvel onglet"
+>
+  {withIcon && <Icon name="lucide:gift" class="h-5 w-5" aria-hidden="true" />}
+  {label}
+</Button>

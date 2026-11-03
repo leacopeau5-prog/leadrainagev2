@@ -45,6 +45,12 @@ export const site = {
     embedUrl: 'https://cal.eu/lea-drainage',
   },
 
+  // Carte cadeau — lien de paiement Stripe (Payment Link)
+  giftCard: {
+    provider: 'stripe' as const,
+    url: 'https://buy.stripe.com/eVq5kF1tmfCK7cN7Qp7AI00',
+  },
+
   // Réseaux sociaux — ajouter au fur et à mesure
   social: {
     instagram: '',              // TODO: ex https://instagram.com/lea.drainage

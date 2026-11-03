@@ -1,5 +1,6 @@
 ---
 import BookingCTA from '@components/ui/BookingCTA.astro';
+import GiftCardCTA from '@components/ui/GiftCardCTA.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '@utils/site';
 
@@ -30,6 +31,7 @@ const {
         <div class="fade-in flex flex-col items-start md:items-end gap-4">
           <div class="flex flex-col items-center gap-3">
             <BookingCTA size="lg" variant="accent" />
+            <GiftCardCTA size="md" variant="secondary" />
             {site.contact.phoneDisplay && (
               <a href={`tel:${site.contact.phone}`} class="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm no-underline">
                 <Icon name="lucide:phone" class="h-4 w-4" aria-hidden="true" />

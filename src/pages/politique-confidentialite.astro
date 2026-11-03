@@ -27,6 +27,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       </p>
       <ul class="list-disc list-inside space-y-1">
         <li><strong>Cal.com (instance EU)</strong> — si vous réservez une séance, Cal.com collecte votre nom, email et créneau. Les données sont hébergées en Europe. Voir leur politique sur <a href="https://cal.com/privacy" rel="noopener noreferrer" target="_blank">cal.com/privacy</a>.</li>
+        <li><strong>Stripe</strong> — si vous achetez une carte cadeau, le paiement est traité par Stripe, qui collecte votre nom, email et les informations de paiement nécessaires à la transaction. Je n'ai jamais accès à vos coordonnées bancaires. Voir leur politique sur <a href="https://stripe.com/fr/privacy" rel="noopener noreferrer" target="_blank">stripe.com/fr/privacy</a>.</li>
         <li><strong>Google Analytics 4</strong> (uniquement après votre consentement via le bandeau cookies) — statistiques de visite anonymisées.</li>
       </ul>
     </section>
@@ -44,7 +45,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       <h2 class="text-xl">Durée de conservation</h2>
       <p>
         Les données éventuellement collectées via Cal.com sont conservées le temps nécessaire à la gestion de vos
-        rendez-vous et à nos obligations légales (facturation, comptabilité).
+        rendez-vous et à nos obligations légales (facturation, comptabilité). Les données liées à l'achat d'une carte
+        cadeau via Stripe sont conservées le temps de validité de la carte et pour la durée de nos obligations comptables.
       </p>
     </section>
 
@@ -64,7 +66,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       <h2 class="text-xl">Transferts hors UE</h2>
       <p>
         L'hébergement est assuré par Vercel (USA), mais avec des serveurs Edge en Europe. Cal.com dispose de
-        serveurs en Europe également. Les transferts éventuels hors UE sont encadrés par les clauses contractuelles
+        serveurs en Europe également. Stripe, société américaine, peut transférer certaines données de paiement
+        hors UE. Les transferts éventuels hors UE sont encadrés par les clauses contractuelles
         types de la Commission européenne.
       </p>
     </section>
