@@ -31,6 +31,35 @@ const faqItems = [
     question: 'Comment prendre rendez-vous ?',
     answer: "Entièrement en ligne via Cal.com. Vous choisissez votre prestation, votre créneau, et recevez votre confirmation par email.",
   },
+  {
+    question: 'Recevez-vous en semaine ?',
+    answer: "Oui ! Je vous accueille du mardi au vendredi de 18h à 20h, idéal après le travail, et le week-end de 10h à 18h. Tous les créneaux libres sont sur Cal.com.",
+  },
+  {
+    question: 'Où se garer, comment trouver le cabinet ?',
+    answer: "Rendez-vous au 3 bis Allée Ambroise Croizat à Bétheny. Vous vous garez gratuitement sur le parking, pas de code ni d'interphone : il suffit de repérer la porte grise (une petite enseigne arrive bientôt !).",
+  },
+  {
+    question: 'Quels moyens de paiement acceptez-vous ?',
+    answer: "Vous réglez directement au cabinet, par carte bancaire, en espèces ou avec Wero. Et pour faire plaisir à un proche, la carte cadeau se règle en ligne en quelques clics.",
+  },
+  {
+    question: "Comment s'habiller, que faut-il apporter ?",
+    answer: "Venez simplement comme vous êtes, je m'occupe du reste ! Pendant le massage, vous gardez culotte et soutien-gorge (plutôt qu'une brassière, plus pratique pour le drainage). Si vous venez en post-opératoire, pensez au feu vert de votre chirurgien ou médecin et à l'ordonnance papier.",
+  },
+  {
+    question: "Que ressent-on après la séance ? Pourquoi a-t-on envie d'aller aux toilettes ?",
+    answer: "On repart souvent avec les jambes légères et une vraie sensation de détente. Et oui, l'envie d'aller aux toilettes est très fréquente ! En stimulant la circulation lymphatique, le drainage contribue à évacuer l'eau en excès, qui finit par être éliminée par les urines. Buvez bien dans les heures qui suivent.",
+  },
+  {
+    question: 'Pourquoi le ventre gargouille pendant la séance ?',
+    answer: "Pas d'inquiétude, ça arrive à presque tout le monde ! En vous détendant, le corps relâche les tensions et le massage stimule la digestion : les gargouillis sont plutôt le signe que votre corps se laisse aller.",
+  },
+  {
+    question: 'Peut-on faire un drainage enceinte ?',
+    answer: "Oui, et il peut même vraiment soulager les jambes lourdes ! Il est possible à partir du 4e mois, avec le feu vert de votre médecin ou sage-femme, mais déconseillé au 1er trimestre. Je vous explique tout dans mon article dédié.",
+    link: { href: '/blog/drainage-lymphatique-grossesse', label: 'Drainage lymphatique pendant la grossesse' },
+  },
 ];
 
 const schema = [localBusinessSchema(), faqSchema(faqItems)];
@@ -38,7 +67,7 @@ const schema = [localBusinessSchema(), faqSchema(faqItems)];
 
 <BaseLayout
   title="Drainage lymphatique manuel à Reims / Bétheny"
-  description="Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Bien-être, post-opératoire, récupération sportive et cure silhouette — sur rendez-vous le week-end."
+  description="Léa, praticienne en drainage lymphatique manuel à Bétheny (agglomération de Reims). Bien-être, post-opératoire, récupération sportive et cure silhouette — sur rendez-vous en soirée et le week-end."
   schema={schema}
 >
   <Hero />

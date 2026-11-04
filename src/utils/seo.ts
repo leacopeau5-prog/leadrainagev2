@@ -36,6 +36,10 @@ export function localBusinessSchema() {
       { '@type': 'City', name: 'Saint-Brice-Courcelles' },
     ],
     openingHoursSpecification: [
+      { dayOfWeek: 'Tuesday',   opens: '18:00', closes: '20:00' },
+      { dayOfWeek: 'Wednesday', opens: '18:00', closes: '20:00' },
+      { dayOfWeek: 'Thursday',  opens: '18:00', closes: '20:00' },
+      { dayOfWeek: 'Friday',    opens: '18:00', closes: '20:00' },
       { dayOfWeek: 'Saturday', opens: '10:00', closes: '18:00' },
       { dayOfWeek: 'Sunday',   opens: '10:00', closes: '18:00' },
     ].map((d) => ({ '@type': 'OpeningHoursSpecification', ...d })),

@@ -1,7 +1,12 @@
 ---
 import SectionHeading from '@components/ui/SectionHeading.astro';
 
-interface Item { question: string; answer: string; }
+interface Item {
+  question: string;
+  answer: string;
+  /** Lien optionnel affiché sous la réponse (ex : article de blog). */
+  link?: { href: string; label: string };
+}
 interface Props {
   items?: Item[];
   eyebrow?: string;
@@ -49,6 +54,13 @@ const { items = defaultItems, eyebrow = 'Questions fréquentes', title = 'Les r�
         </summary>
         <div class="px-5 md:px-6 pb-5 md:pb-6 text-[color:var(--color-ink-muted)] text-base">
           {item.answer}
+          {item.link && (
+            <p class="mt-3 mb-0">
+              <a href={item.link.href} class="font-semibold text-[color:var(--color-primary)]">
+                → {item.link.label}
+              </a>
+            </p>
+          )}
         </div>
       </details>
     ))}
