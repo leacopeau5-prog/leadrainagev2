@@ -4,19 +4,56 @@ import Card from '@components/ui/Card.astro';
 import CitrusAccent from '@components/ui/CitrusAccent.astro';
 import { Icon } from 'astro-icon/components';
 
-// Vrais avis Google — mis à jour manuellement depuis la fiche GMB.
-// Note globale actuelle : 5.0 / 5 sur 5 avis
+// Vrais avis Google — mis à jour manuellement depuis la fiche GMB (texte verbatim).
+// Seuls les avis avec texte sont affichés ; les avis "étoiles seules" comptent dans reviewCount.
 const reviewsUrl =
   'https://www.google.com/search?sca_esv=754e958c4027edbc&q=lea+drainage&sa=X&ved=2ahUKEwicyJuYkfWVAxXqVKQEHd9mFy4Q3PALegQILxAF';
 
-const rating = 5.0;
-const reviewCount = 5;
+const rating = 4.9;
+const reviewCount = 16;
 
+// Du plus récent au plus ancien (date = mois de visite indiqué par Google)
 const testimonials = [
   {
-    text: "J'ai fait mon tout premier drainage lymphatique avec Léa et c'était une super expérience. Très relaxant, je me suis sentie à l'aise du début à la fin. Professionnelle, douce et attentive, je recommande sans hésiter.",
-    author: 'Sarah Hiblot',
-    date: 'Mai 2026',
+    text: "Un véritable moment de bonheur et de bien-être !\nUn massage drainage lymphatique absolument exceptionnel, réalisé avec beaucoup de douceur, de professionnalisme et de savoir-faire. On se sent immédiatement entre de bonnes mains. Le résultat est bluffant : une sensation de légèreté, un corps détendu et un véritable bien-être dès la fin de la séance.\nUn pur moment de détente, avec une personne à l'écoute, attentionnée et passionnée par son métier.\nJe recommande les yeux fermés ! Hâte de revenir pour une prochaine séance.",
+    author: 'Anne-Laure Domitin',
+    date: 'Octobre 2026',
+    stars: 5,
+  },
+  {
+    text: "Léa est très souriante et professionnelle. Le soin est très dynamique et m'a procuré un bien-etre et un soulagement surtout au niveau des douleurs dans les jambes, je recommande.",
+    author: 'Ninie Marcel',
+    date: 'Octobre 2026',
+    stars: 4,
+  },
+  {
+    text: "J'ai eu la chance de passer entre les mains de fée de Léa pour un drainage lymphatique ! Après une course de 5 km, j'avais les jambes lourdes et courbaturées.\nUne heure de détente absolue, un vrai moment de bien-être ! Dès le soir, j'ai ressenti une réelle légèreté dans mes jambes. J'ai passé une nuit parfaite et, le lendemain, j'avais l'impression de flotter sur un nuage ! ☁️✨\nLéa est douce, attentionnée et a des mains de fée ! 🧚‍♀️ Une expérience que je compte intégrer à ma routine dès maintenant. Je recommande les yeux fermés ! 🥰",
+    author: 'Charlotte Chatel',
+    date: 'Octobre 2026',
+    stars: 5,
+  },
+  {
+    text: "Accueil au top et le soin m'a fait beaucoup de bien (drainage lymphatique). Merci à Léa pour son professionnalisme 😊😍😘💋🌸",
+    author: 'Zoubida Kennar',
+    date: 'Août 2026',
+    stars: 5,
+  },
+  {
+    text: "Un moment de détente et une sensation de légèreté et d'apaisement. Je recommande !",
+    author: 'Laurine Piquet',
+    date: 'Août 2026',
+    stars: 5,
+  },
+  {
+    text: 'Une très belle découverte, sympathique et passionnée . Je recommande, un vrai moment de détente avec un drainage énergétique. A renouveler, merci Léa.',
+    author: 'Christelle Hemard',
+    date: 'Août 2026',
+    stars: 5,
+  },
+  {
+    text: "Super drainage avec Léa qui est très à l'écoute !! je recommande 🥰",
+    author: 'm_noor',
+    date: 'Juillet 2026',
     stars: 5,
   },
   {
@@ -26,9 +63,9 @@ const testimonials = [
     stars: 5,
   },
   {
-    text: "Super drainage avec Léa qui est très à l'écoute !! Je recommande.",
-    author: 'm_noor',
-    date: 'Juillet 2026',
+    text: 'Première séance de drainage, super contente',
+    author: 'Rachel Dhesse',
+    date: 'Juin 2026',
     stars: 5,
   },
   {
@@ -38,9 +75,21 @@ const testimonials = [
     stars: 5,
   },
   {
-    text: 'Première séance de drainage, super contente.',
-    author: 'Rachel Dhesse',
+    text: "Bonne expérience, mon drainage s'est bien passé avec Lea. Je recommande vivement !",
+    author: 'Isia Bocquet',
     date: 'Juin 2026',
+    stars: 5,
+  },
+  {
+    text: 'Super expérience pour cette première séance de drainage ! Très professionnelle. Hâte de revenir 😊',
+    author: 'Léa Bejaoui',
+    date: 'Juin 2026',
+    stars: 5,
+  },
+  {
+    text: "J'ai fait mon tout premier drainage lymphatique avec Léa et c'était une super expérience. Très relaxant, je me suis sentie à l'aise du début à la fin. Professionnelle, douce et attentive, je recommande sans hésiter 😊",
+    author: 'Sarah Hiblot',
+    date: 'Mai 2026',
     stars: 5,
   },
 ];
@@ -115,12 +164,26 @@ function avatarFor(name: string, i: number) {
       </a>
     </div>
 
-    <!-- Grille des avis -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Carrousel des avis : scroll-snap natif + flèches + défilement auto (JS minimal ci-dessous) -->
+    <div
+      class="relative fade-in"
+      data-carousel
+      role="region"
+      aria-roledescription="carrousel"
+      aria-label="Avis de mes clientes"
+    >
+      <div
+        data-carousel-track
+        tabindex="0"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-1 pb-4 -mx-2 px-2 scroll-px-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
       {testimonials.map((t, i) => {
         const avatar = avatarFor(t.author, i);
         return (
-          <Card class="fade-in h-full flex flex-col" variant="default">
+          <Card
+            class="snap-start shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex flex-col"
+            variant="default"
+          >
             <!-- Header avatar + nom + Avis Google -->
             <div class="flex items-center gap-3 mb-4">
               <div
@@ -150,8 +213,8 @@ function avatarFor(name: string, i: number) {
             <!-- Étoiles + date -->
             <div class="flex items-center gap-2 mb-3">
               <span class="flex items-center gap-0.5" aria-label={`${t.stars} étoiles sur 5`}>
-                {Array.from({ length: t.stars }).map(() => (
-                  <svg viewBox="0 0 20 20" width="14" height="14" fill="#E0AE3D">
+                {Array.from({ length: 5 }).map((_, k) => (
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill={k < t.stars ? '#E0AE3D' : 'var(--color-taupe-100)'}>
                     <path d="M10 15.27l-5.18 3.05 1.64-5.81L2 8.24l6-.52L10 2l2 5.72 6 .52-4.46 4.27 1.64 5.81z"/>
                   </svg>
                 ))}
@@ -160,12 +223,35 @@ function avatarFor(name: string, i: number) {
             </div>
 
             <!-- Texte de l'avis -->
-            <blockquote class="text-sm text-[color:var(--color-ink)] leading-relaxed flex-1 m-0">
-              « {t.text} »
+            <blockquote class="text-sm text-[color:var(--color-ink)] leading-relaxed flex-1 m-0 space-y-2">
+              {t.text.split('\n').map((para, j, all) => (
+                <p class="m-0">{j === 0 && '« '}{para}{j === all.length - 1 && ' »'}</p>
+              ))}
             </blockquote>
           </Card>
         );
       })}
+      </div>
+
+      <!-- Flèches -->
+      <div class="mt-4 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          data-carousel-prev
+          aria-label="Avis précédents"
+          class="h-11 w-11 inline-flex items-center justify-center rounded-full bg-white border border-[color:var(--color-taupe-200)] text-[color:var(--color-primary)] shadow-[var(--shadow-soft)] hover:border-[color:var(--color-rose)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-accent)]"
+        >
+          <Icon name="lucide:chevron-left" class="h-5 w-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          data-carousel-next
+          aria-label="Avis suivants"
+          class="h-11 w-11 inline-flex items-center justify-center rounded-full bg-white border border-[color:var(--color-taupe-200)] text-[color:var(--color-primary)] shadow-[var(--shadow-soft)] hover:border-[color:var(--color-rose)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--color-accent)]"
+        >
+          <Icon name="lucide:chevron-right" class="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
     </div>
 
     <!-- CTA voir tous les avis -->
@@ -185,3 +271,56 @@ function avatarFor(name: string, i: number) {
 
   </div>
 </section>
+
+<script>
+  // Carrousel des avis : flèches + défilement auto doux.
+  // Pause au survol / focus, arrêt définitif dès que la personne fait défiler elle-même,
+  // aucun défilement auto si "réduire les animations" est activé.
+  const AUTOPLAY_MS = 5000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-carousel-track]');
+    const prev = root.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-carousel-next]');
+    if (!track) return;
+
+    const step = () => {
+      const card = track.firstElementChild as HTMLElement | null;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return card ? card.offsetWidth + gap : track.clientWidth;
+    };
+    const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    const atStart = () => track.scrollLeft <= 4;
+
+    const goNext = () => (atEnd() ? track.scrollTo({ left: 0 }) : track.scrollBy({ left: step() }));
+    const goPrev = () => (atStart() ? track.scrollTo({ left: track.scrollWidth }) : track.scrollBy({ left: -step() }));
+
+    let timer: number | undefined;
+    let paused = false;
+    let stopped = reduceMotion;
+    let visible = false;
+
+    const tick = () => {
+      if (!paused && !stopped && visible && !document.hidden) goNext();
+    };
+    const stop = () => {
+      stopped = true;
+      window.clearInterval(timer);
+    };
+
+    next?.addEventListener('click', () => { stop(); goNext(); });
+    prev?.addEventListener('click', () => { stop(); goPrev(); });
+    track.addEventListener('pointerdown', stop);
+    track.addEventListener('wheel', stop, { passive: true });
+    track.addEventListener('keydown', stop);
+    root.addEventListener('mouseenter', () => { paused = true; });
+    root.addEventListener('mouseleave', () => { paused = false; });
+    root.addEventListener('focusin', () => { paused = true; });
+    root.addEventListener('focusout', () => { paused = false; });
+
+    new IntersectionObserver(([entry]) => { visible = !!entry?.isIntersecting; }, { threshold: 0.3 }).observe(root);
+
+    if (!stopped) timer = window.setInterval(tick, AUTOPLAY_MS);
+  });
+</script>
