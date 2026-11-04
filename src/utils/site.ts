@@ -53,8 +53,8 @@ export const site = {
 
   // Réseaux sociaux — ajouter au fur et à mesure
   social: {
-    instagram: '',              // TODO: ex https://instagram.com/lea.drainage
-    facebook: '',
+    instagram: 'https://www.instagram.com/leacopeau/',
+    facebook: 'https://www.facebook.com/profile.php?id=61593810459408',
   },
 
   legal: {
