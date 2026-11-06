@@ -119,7 +119,7 @@ Chaque chirurgie a ses particularités.
 
 ### Après une liposuccion
 
-C'est l'indication **n°1** du drainage post-op. La liposuccion crée un œdème massif et une lymphe surchargée par les graisses fragmentées. **Sans drainage, le risque de fibrose** (peau qui "gondole" ou présente des irrégularités) est plus élevé. Un bon protocole **dès la 1re semaine** transforme le résultat final.
+C'est l'indication **n°1** du drainage post-op. La liposuccion crée un œdème massif et une lymphe surchargée par les graisses fragmentées. **Sans drainage, le risque de fibrose** (peau qui "gondole" ou présente des irrégularités) est plus élevé. Un bon protocole **dès la 1re semaine** transforme le résultat final. Pour tout le détail : [le guide du drainage lymphatique après liposuccion](/blog/drainage-lymphatique-apres-liposuccion).
 
 ### Après une abdominoplastie
 
