@@ -262,7 +262,7 @@ Attendez les **règles suivantes** (cycle naturel revenu) avant de programmer un
 
 Si vous êtes enceinte ou jeune maman à Reims et que vous voulez du soulagement pour vos jambes lourdes, vos chevilles gonflées ou simplement un vrai moment pour vous : **contactez-moi**. On échange sur votre situation, je vous confirme si une séance est pertinente, et on planifie au bon moment.
 
-→ [Voir la prestation Drainage bien-être](/prestations/drainage-bien-etre) · [Lire l'article sur les contre-indications](/blog/drainage-lymphatique-contre-indications) · [Me contacter](/contact)
+→ [Voir la prestation Grossesse & post-partum](/prestations/drainage-grossesse-post-partum) · [Lire l'article sur les contre-indications](/blog/drainage-lymphatique-contre-indications) · [Me contacter](/contact)
 
 À très vite,
 Léa

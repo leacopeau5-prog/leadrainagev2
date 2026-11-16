@@ -1,6 +1,6 @@
 ---
 title: "Cure silhouette — 5 séances"
-order: 4
+order: 5
 summary: "Un forfait de 5 séances rapprochées pour affiner la silhouette, réduire la rétention d'eau et retrouver une peau plus tonique. Tarif global : 350 €."
 duration: "60 minutes par séance"
 frequency: "5 séances sur 2 à 3 semaines pour maximiser les résultats"

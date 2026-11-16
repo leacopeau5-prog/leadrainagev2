@@ -21,9 +21,10 @@ const services = (await getCollection('services', (s) => !s.data.draft))
       <p class="italic">Les prestations seront listées ici dès que les fiches seront finalisées.</p>
     </div>
   ) : (
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- flex-wrap centré : la dernière ligne incomplète reste centrée (5 prestations) -->
+    <div class="flex flex-wrap justify-center gap-6">
       {services.map((service) => (
-        <Card href={`/prestations/${service.id}`} class="fade-in h-full flex flex-col">
+        <Card href={`/prestations/${service.id}`} class="fade-in w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex flex-col">
           <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)] mb-4">
             <Icon name={service.data.icon} class="h-6 w-6" aria-hidden="true" />
           </div>

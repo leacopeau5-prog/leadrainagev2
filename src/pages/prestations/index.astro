@@ -20,7 +20,7 @@ const schema = breadcrumbSchema([
 
 <BaseLayout
   title="Prestations & tarifs drainage lymphatique à Reims"
-  description="4 prestations de drainage lymphatique à Reims : bien-être (80€), récupération sportive (80€), post-opératoire (80€) et cure silhouette 5 séances (350€). Réservation en ligne."
+  description="5 prestations de drainage lymphatique à Reims : bien-être, récupération sportive, post-opératoire, grossesse & post-partum (80€) et cure silhouette 5 séances (350€). Réservation en ligne."
   schema={schema}
 >
   <section class="relative overflow-hidden bg-[color:var(--color-cream)] py-16 md:py-20">
@@ -30,7 +30,7 @@ const schema = breadcrumbSchema([
 
     <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--color-rose)] mb-3 mx-auto">Prestations & tarifs</p>
-      <h1 class="m-0">Drainage lymphatique à Reims : 4 prestations adaptées à chaque besoin</h1>
+      <h1 class="m-0">Drainage lymphatique à Reims : 5 prestations adaptées à chaque besoin</h1>
       <p class="mt-6 text-lg text-[color:var(--color-ink-muted)]">
         Chaque séance débute par un court échange pour adapter le protocole à votre état du jour, votre objectif et d'éventuelles contre-indications.
         Tarifs entre <strong>80 €</strong> et <strong>350 €</strong> (cure 5 séances) — paiement au cabinet.
@@ -41,9 +41,10 @@ const schema = breadcrumbSchema([
   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
     <SectionHeading eyebrow="Choisissez votre séance" title="Les prestations proposées" />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- flex-wrap centré : la dernière ligne incomplète reste centrée (5 prestations) -->
+    <div class="flex flex-wrap justify-center gap-6">
       {services.map((service) => (
-        <Card href={`/prestations/${service.id}`} class="fade-in h-full flex flex-col">
+        <Card href={`/prestations/${service.id}`} class="fade-in w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex flex-col">
           <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[color:var(--color-accent-100)] text-[color:var(--color-primary)] mb-4">
             <Icon name={service.data.icon} class="h-6 w-6" aria-hidden="true" />
           </div>
