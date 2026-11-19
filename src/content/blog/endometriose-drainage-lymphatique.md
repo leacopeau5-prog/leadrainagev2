@@ -4,6 +4,10 @@ description: "Ventre gonflé, douleurs, fatigue : ce que le drainage lymphatique
 publishDate: 2026-11-19
 author: "Léa"
 tags: ["endométriose", "endo belly", "douleurs pelviennes", "ventre gonflé", "drainage lymphatique", "bien-être", "Bétheny", "Reims"]
+cover: "../../assets/blog/endometriose.jpg"
+coverAlt: "Femme allongée sur le côté, serrant une bouillotte rouge contre son ventre pour apaiser des douleurs pelviennes"
+heroImage: "../../assets/blog/endometriose-hero.jpg"
+heroAlt: "Mains enlaçant une bouillotte posée sur le ventre, geste réconfortant face aux douleurs de l'endométriose"
 draft: false
 ---
 
