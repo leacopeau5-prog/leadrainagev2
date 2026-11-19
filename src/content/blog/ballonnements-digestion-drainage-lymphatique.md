@@ -192,7 +192,7 @@ En plus des contre-indications classiques (voir [notre article dédié](/blog/dr
 - 🚨 **Chirurgie abdominale récente** (< 8 semaines, sauf accord chirurgien)
 - 🚨 **Suspicion d'occlusion** ou douleur abdominale aiguë inexpliquée
 - 🚨 **Hernie abdominale non stabilisée**
-- 🚨 **Endométriose sévère en poussée**
+- 🚨 **Endométriose sévère en poussée** (en dehors des poussées, le drainage reste possible avec des précautions : voir [endométriose et drainage lymphatique](/blog/endometriose-drainage-lymphatique))
 
 En cas de **syndrome de l'intestin irritable (SII)**, le drainage est **généralement bénéfique** — mais on adapte la pression et on évite les zones sensibles du jour.
 
